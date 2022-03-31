@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>테이블 태그는 자주 사용되지만 사용시 유의할 점이 있다</h1>
+    <h3>테이블 태그는 레이아웃 용도로 사용하면 안된다</h3>
+    <ul>
+        <li>테이블이라는 모양을 만들때 렌더링을 스택방식으로 쌓아 올리기 때문</li>
+        <li>태그위에 태그를 쌓고 그 위에 태그를 또 쌓아서 위에서 보았을때 모양이</li>
+        <li>그리드 형식처럼 보여지는 방식을 사용하는것</li>
+    </ul>
+
+    <table border="1px">
+        <thead>
+            <tr>
+                <td>border라는 속성으로 두께를 지정한다</td>
+                <td>width와 height속성을 사용하여 크기를 지정할 수 있다</td>
+                <td>table태그는 CSS로 스타일링 필수</td>
+                <td>table안에 table태그를 중첩으로 사용하는 것은 최악</td>
+                <td>5</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h3>th태그는 strong, 중앙정렬을 기본으로 적용</h3>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th width="100px">내용1</th>
+                <th width="100px">내용2</th>
+                <th width="100px">내용3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">내용1</td>
+                <td>내용2</td>
+                <td>내용3</td>
+            </tr>
+            <tr>
+                <!-- <td>내용4</td> -->
+                <td>내용5</td>
+                <td>내용6</td>
+            </tr>
+            <tr>
+                <td>내용7</td>
+                <td colspan="2">내용8</td>
+                <!-- <td>내용9</td> -->
+            </tr>
+            <tr>
+                <td rowspan="2">내용10</td>
+                <td>내용11</td>
+                <td>내용12</td>
+            </tr>
+            <tr>
+                <!-- <td>내용13</td> -->
+                <td>내용14</td>
+                <td>내용15</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td rowspan="2" colspan="2">6</td>
+                <!-- <td>7</td> -->
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <!-- <td>10</td> -->
+                <!-- <td>11</td> -->
+                <td rowspan="2">12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <!-- <td>16</td> -->
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div 태그</title>
+
+    <style>
+        div {
+            height: 100px;
+        }
+
+        #first {
+            width: 80%;
+            background-color:red;
+        }
+
+        #second {
+            width: 50%;
+            background-color:green;
+        }
+
+        #third {
+            width: 25%;
+            background-color:blue;
+        }
+
+        #outer {
+            width: 80%;
+            height: 300px;
+            background-color:red;
+        }
+
+        #mid {
+            width: 50%;
+            height: 200px;
+            background-color:green;
+        }
+
+        #inner {
+            width: 25%;
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>div 태그는 사용룰만 따저보면 가장 많이 사용하는 태그</h1>
+    <h3>영역을 분리하여 담는 컨테이너 역할의 태그</h3>
+    <h3>block 속성을 갖고 있어 컨트롤하기 힘들지만 영역분리 개념으로 많이 사용</h3>
+
+    <div id="first"></div>
+    <div id="second"></div>
+    <div id="third"></div>
+
+    <br>
+
+    <div id="outer">
+        <div id="mid">
+            <div id="inner">
+
+            </div>
+        </div>
+    </div>
+
+    <span>inline 속성을 갖는 span태그는 특정 텍스트를 컨트롤하기 위해 영역을 만드는 태그</span>
+</body>
+</html>
