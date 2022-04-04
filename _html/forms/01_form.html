@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tag</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h3>form태그의 action속성은 이 양식이 어디로 제출(전송) 될 것인가</h3>
+    <h3>url, 파일위치, 특정 주소값등을 적는 곳</h3>
+    <h3>form태그를 이용한 전송은 데이터전송과 함께 페이지의 이동이 이루어짐</h3>
+    <h3>method속성이 생략되거나 빈값이면 get, post 방식은 반드시 기재할것</h3>
+    <!-- get -> urlencoded -->
+    <form action="02_getDatas.html" method="">
+        id : <input type="text" name="userid"><br>
+        가입일 : <input type="date" name="regdate"><br>
+        email : <input type="email" name="email"><br>
+        <input type="submit" value="전송하기">
+        <button type="submit">전송하기</button>
+    </form>
+    form태그 내부의 type="submit"을 갖고 있는 element들을 클릭을 하면<br>
+    해당 form의 action속성 값의 주소로 데이터를 전송하면서 이동하게 됨
+    <form action="02_getDatas.html" method="post">
+        id : <input type="text" name="userid" id=""><br>
+        pwd : <input type="password" name="userpw" id="">
+        <button type="submit">로그인</button>
+    </form>
+    action속성 값을 생략하면 현재 페이지를 재로딩함
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type text</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <form action="" method="">
+        <div>
+            <label for="a">일반텍스트 입력</label><br>
+            <input type="text" name="" id="a">
+        </div>
+        <div>
+            <label for="">텍스트입력 길이속성</label><br>
+            <input type="text" name="" id="" maxlength="5">
+        </div>
+        <div>
+            <label for="">텍스트읽기 전용속성</label><br>
+            <input type="text" name="uid" id="" maxlength="5" value="abc" readonly>
+            <!-- readonly속성이 적용된 데이터는 전송가능 -->
+        </div>
+        <div>
+            <label for="">입력창기능 제한속성</label><br>
+            <input type="text" name="uid" id="" maxlength="5" value="bcd" disabled>
+            <!-- disabled속성이 적용된 데이터는 전송 불가능 -->
+        </div>
+        <div>
+            <label for="">입력텍스트 규칙설정</label><br>
+            <input type="text" name="" id="" pattern="정규식(regular expression)">
+        </div>
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>
