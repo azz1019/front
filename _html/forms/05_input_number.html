@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type number</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>숫자만 입력이 가능한타입, 증감클릭 기능제공</h1>
+    <form action="" method="">
+        <div>
+            <label for="n1">숫자입력란 : </label><br>
+            <input type="number" name="n1" id="n1" value="1234">
+        </div>
+        <div>
+            <label for="n2">숫자입력란 : </label><br>
+            <input type="number" name="n2" id="n2" value="1234" readonly>
+        </div>
+        <div>
+            <label for="n3">숫자입력란 : </label><br>
+            <input type="number" name="n3" id="n3" max="1024" min="0">
+            <!-- 사용자가 임의의 데이터입력은 가능하나 전송시 속성을 모두 유효성검사함 -->
+        </div>
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>
