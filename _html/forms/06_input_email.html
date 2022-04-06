@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type email, tel</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>email과 전화번호 형식만을 허용하는 입력란</h1>
+    <form action="" method="">
+        <div>
+            <label for="email">Email : </label><br>
+            <input type="email" name="" id="email" pattern="정규식(regular expression)">
+        </div>
+        <div>
+            <label for="tel">Tel : </label><br>
+            <input type="tel" name="" id="tel" pattern="정규식(regular expression)">
+        </div>
+        <button type="submit">전송</button>
+    </form>
+    <h3>강력한 형식제한 기능은없다</h3>
+    <h3>전송버튼을 클릭시 유효성검사함</h3>
+    <h3>주로 pattern속성에 정규식을 통해 강력한 형식제한을 구현함</h3>
+</body>
+</html>
