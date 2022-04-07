@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type 날짜, 시간</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>특정형식으로 선택할 수 있는 뷰를 제공</h1>
+    <form action="" method="">
+        <div>
+            <label for="d1">Date : </label>
+            <input type="date" name="" id="d1" min="2022-03-01" max="2022-03-20" value="2022-03-15">
+        </div>
+        <div>
+            <label for="d2">Datetime : </label>
+            <input type="datetime" name="" id="d2">
+        </div>
+        <div>
+            <label for="d3">Datetime-local : </label>
+            <input type="datetime-local" name="" id="d3">
+        </div>
+        <div>
+            <label for="t1">Time : </label>
+            <input type="time" name="" id="t1">
+        </div>
+        <div>
+            <label for="m1">Month : </label>
+            <input type="month" name="" id="m1">
+        </div>
+        <div>
+            <label for="w1">Week : </label>
+            <input type="week" name="" id="w1">
+        </div>
+    </form>
+    <h3>2022-03-16형식의 문자모양이지만 정확한 수치값이다</h3>
+    <h3>그래서 min, max와 같은 수치 속성적용이 가능하다</h3>
+    <h3>뷰에서 제공되는 데이터가 서버측으로 어떤 형식으로 전달되는가를 아는것이 중요!</h3>
+</body>
+</html>
