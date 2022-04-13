@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type file, hidden</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>파일타입은 일반 input과 속성이 다름</h1>
+    <h3>파일첨부 윈도우(팝업창)은 html에서 제공하는 고유기능(수정불가)</h3>
+    <h3>파일이 첨부된 form은 enctype의 값이 multipart/form-data를 지정해야함</h3>
+    <h3>파일전송은 반드시 post방식으로 전송해야한다(전송데이터 크기의한계)</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="files">File Attach</label><br>
+            <input type="file" name="myfile" id="files">
+        </div>
+        <div>
+            <label for="files2">File Attach</label><br>
+            <input type="file" name="myfile2" id="files2" multiple>
+        </div>
+        <div>
+            <label for="files3">File Attach</label><br>
+            <input type="file" name="myfile3" id="files3" accept="png|jpeg">
+        </div>
+        <h3>file type은 보안정책상 수정관련 기능을 제공하지 않는다</h3>
+        <h3>value속성값에 기존 정보를 로딩할 수 없다</h3>
+        <button type="submit">파일전송</button>
+    </form>
+
+    <h3>hidden타입은 화면에 출력되지 않은 상태에서 데이터 전송이 필요할때 사용-많은 부분에서 사용이 되므로 꼭 알아둘것!</h3>
+    <h3>데이터 전송 목적이므로 name속성과 value속성이 반드시 명시되어야함</h3>
+    <form action="" method="">
+        <input type="hidden" name="mynum" value="12345">
+        id : <input type="text" name="id" id="id"><br>
+        password : <input type="password" name="password" id="password">
+        <button type="submit">데이터전송</button>
+    </form>
+</body>
+</html>
