@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+
+    <style>
+        h1 {
+            color:hotpink;
+        }
+
+        table, td{
+            border: 2px dotted;
+            border-color: pink; 
+        }
+
+        .sub-title {
+            color: mediumpurple;
+            font-size: 1em;
+        }
+
+        #button {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="index.html">Index로 돌아가기</a></h3>
+    <div>
+        <form action="" method="">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="3">
+                            <h1>회원가입 Member Private Information</h1>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 기본정보입력 -->
+                    <tr>
+                        <td colspan="3">
+                            <div class="sub-title">
+                                <b>기본정보 입력</b> ※표시는 필수항목이므로 반드시 입력해야 합니다.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_id">※ 아이디</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_id" id="user_id" required>
+                            <button type="button" id="user_id_redundancy_check">중복검색</button> 영문
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_password">※ 비밀번호</label></td>
+                        <td colspan="2">
+                            <input type="password" name="user_password" id="user_password" required> -&gt재확인
+                            <input type="password" name="user_password_check" id="user_password_check" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_password_hint">※ 비밀번호힌트</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_password_hint" id="user_password_hint" required> 비번분실-조회시 참고할 내용
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_name">※ 이름(본명)</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_name" id="user_name" required> -&gt한글
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_nickname">※ 닉네임(별명)</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_nickname" id="user_nickname" required>
+                            <button type="button" id="user_nickname_redundancy_check">중복검색</button> 한글,영문
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_email">※ 전자메일주소</label></td>
+                        <td><input type="email" name="user_email" id="user_email" required></td>
+                        <td><input type="checkbox" name="user_email_is_public" id="user_email_is_public">비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_birth">※ 생년월일</label></td>
+                        <td>
+                            <input type="date" name="user_birth" id="user_birth">
+                            <input type="radio" name="user_birth" id="user_birth_lunar">
+                            <label for="user_birth_lunar">음</label>
+                            <input type="radio" name="user_birth" id="user_birth_solar" required checked>
+                            <label for="user_birth_solar">양</label>
+                        </td>
+                        <td><input type="checkbox" name="user_birth_is_public" id="user_birth_is_public">비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">※ 성 별</label></td>
+                        <td>
+                            <input type="radio" name="user_sex" id="user_sex_male" value="male" required checked>
+                            <label for="user_sex_male">남자</label>
+                            <input type="radio" name="user_sex" id="user_sex_female" value="female">
+                            <label for="user_sex_female">여자</label>
+                        </td>
+                        <td><input type="checkbox" name="user_sex_is_public" id="user_sex_is_public" disabled>비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_zipcode_front">우편번호</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_zipcode_front" id="user_zipcode_front"> -
+                            <input type="text" name="user_zipcode_back" id="user_zipcode_back">
+                            <button type="button" id="user_zipcode_search">찾아보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_address_front">주소</label></td>
+                        <td>
+                            <input type="text" name="user_address_front" id="user_address_front"><br>
+                            <input type="text" name="user_address_back" id="user_address_back"> &lt-나머지주소
+                        </td>
+                        <td><input type="checkbox" name="user_address_is_public" id="user_address_is_public" checked>비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_tel_front">일반전화 번호</label></td>
+                        <td>
+                            <select name="user_tel_front" id="user_tel_front">
+                                <option value="">국번</option>
+                                <option value="">02</option>
+                            </select> -
+                            <input type="text" name="user_tel_middle" id="user_tel_middle"> -
+                            <input type="text" name="user_tel_back" id="user_tel_back">
+                        </td>
+                        <td><input type="checkbox" name="user_tel_is_public" id="user_tel_is_public" checked>비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_mobile_front">휴대전화 번호</label></td>
+                        <td>
+                            <select name="user_mobile_front" id="user_mobile_front">
+                                <option value="">국번</option>
+                                <option value="">010</option>
+                            </select> -
+                            <input type="text" name="user_mobile_middle" id="user_mobile_middle"> -
+                            <input type="text" name="user_mobile_back" id="user_mobile_back">
+                        </td>
+                        <td><input type="checkbox" name="user_mobile_is_public" id="user_mobile_is_public" checked>비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_website">홈페이지</label></td>
+                        <td><input type="text" name="user_website" id="user_website" value="https://"></td>
+                        <td><input type="checkbox" name="user_website_is_public" id="user_website_is_public">비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_greeting">소개,인사말</label></td>
+                        <td colspan="2">
+                            <textarea name="user_greeting" cols="50" rows="3">반갑습니다.</textarea>
+                        </td>
+                    </tr>
+
+                    <!-- 추가정보입력 -->
+                    <tr>
+                        <td colspan="3">
+                            <div class="sub-title">
+                                <b>추가정보 입력</b>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_id_picture_file">사진첨부</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_id_picture_path" id="user_id_picture_path">
+                            <input type="file" name="user_id_picture_file" id="user_id_picture_file"><br>
+                            200x200 픽셀 이하 크기만 허용
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_name_picture_file">이름표시 아이콘</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_name_picture_path" id="user_name_picture_path">
+                            <input type="file" name="user_name_picture_file" id="user_name_picture_file"><br>
+                            25x20 픽셀 이하 크기만 허용
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">혼인여부</label></td>
+                        <td>
+                            <input type="radio" name="user_marital_status" id="user_marital_single">
+                            <label for="user_marital_single">미혼</label>
+                            <input type="radio" name="user_marital_status" id="user_marital_married">
+                            <label for="user_marital_married">기혼</label>
+                            <input type="radio" name="user_marital_status" id="user_marital_divorced">
+                            <label for="user_marital_divorced">이혼</label>
+                            <input type="radio" name="user_marital_status" id="user_marital_off_the_market">
+                            <label for="user_marital_off_the_market">교제중</label>
+                        </td>
+                        <td><input type="checkbox" name="user_marital_status_is_public" id="user_marital_status_is_public">비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_interest">관심분야</label></td>
+                        <td>
+                            <select name="user_interest" id="user_interest">
+                                <option value="">선택없음</option>
+                                <option value="">동물</option>
+                                <option value="">음식</option>
+                                <option value="">운동</option>
+                            </select>
+                        </td>
+                        <td><input type="checkbox" name="user_interest_is_public" id="user_interest_is_public">비공개</td>
+                    </tr>
+                    <tr>
+                        <td><label for="user_character_file">캐릭터 선택</label></td>
+                        <td colspan="2">
+                            <input type="text" name="user_character_path" id="user_character_path">
+                            <input type="file" name="user_character_file" id="user_character_file">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">메일링 수신거부</label></td>
+                        <td colspan="2">
+                            <input type="checkbox" name="user_emailing_rejection" id="user_emailing_rejection">
+                            <label for="user_emailing_rejection">메일링 수신 거부시 체크.</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">쪽지 수신거부</label></td>
+                        <td colspan="2">
+                            <input type="checkbox" name="user_note_rejection" id="user_note_rejection">
+                            <label for="user_note_rejection">쪽지 수신 거부시 체크.</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">전체 비공개</label></td>
+                        <td colspan="2">
+                            <input type="checkbox" name="user_info_all_private" id="user_info_all_private">
+                            <label for="user_info_all_private">회원등록정보 전체 비공개시 체크.</label>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <div id="button">
+                                <button type="submit">입력완료전송</button>
+                                <button type="reset">다시입력하기</button>
+                            </div>
+                        </td>
+                    </tr>    
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
