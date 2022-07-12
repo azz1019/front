@@ -1,0 +1,27 @@
+h1 {
+    color:hotpink;
+}
+ol {
+    list-style: upper-roman;
+    margin-left: 50px;
+}
+li {
+    font-size: 1.5em;
+    color: blueviolet;
+}
+a {
+    color: blueviolet;
+    text-decoration: none;
+}
+a:link {
+    color: blueviolet;
+}
+a:visited {
+    color: blueviolet;
+}
+a:hover {
+    background-color: pink;
+}
+a:active {
+    color: blueviolet;
+}
