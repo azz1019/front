@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결합, 조합 선택자</title>
+    <style>
+        /* 이런방식으로는 사용하지 말것
+        h1, div li > a {
+            
+        }
+        h1 > a span > .a {
+
+        }
+        body > div > ul > li >a 이렇게 나열된 선택자들은 툴을 이용해서 생성된 코드일 가능성이 높음*/
+        h1, div { /*,는 and조건*/
+            border: 2px dashed  red;
+            margin-bottom: 10px;
+        }
+        div ul { /*띄어쓰기는 div내부의 ul선택*/
+            border: 1px dotted green;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        div a {
+            color: deepskyblue;
+        }
+        div > a { /*자식노드 선택*/
+            background-color: yellow;
+        }
+        ol #first { /*ol a#first도 동일함*/
+            font-size: 2em;
+        }
+        a.links { /*a태그가 class="links"를 갖고 있는것*/
+            background-color: cornflowerblue;
+        }
+        .links.first {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>선택자를 다수개 조합하여 선택하는 문법</h1>
+    <div>
+        <a href="">div태그의 자식 노드</a>
+        <ul class="links">
+            <li><a href="" id="first" class="links first">링크테스트</a></li>
+            <li><a href="" id="" class="links">링크테스트</a></li>
+            <li><a href="" id="last" class="links">링크테스트</a></li>
+        </ul>
+        <a href="">div태그의 자식 노드</a>
+        <ol class="links">
+            <li><a href="" id="first" class="">링크테스트</a></li>
+            <li><a href="" id="" class="">링크테스트</a></li>
+            <li><a href="" id="last" class="">링크테스트</a></li>
+        </ol>
+        <a href="">div태그의 자식 노드</a>
+    </div>
+    <ul>
+        <li><a href="" id="first" class="">링크테스트</a></li>
+        <li><a href="" id="" class="">링크테스트</a></li>
+        <li><a href="" id="last" class="">링크테스트</a></li>
+    </ul>
+    <h3>id는 문서내에서 유니크하게 사용해야 선택자사용에 혼란을 줄일 수 있다</h3>
+</body>
+</html>
