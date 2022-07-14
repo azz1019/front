@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        ul {
+            list-style-type: none;
+            background-color: slategray;
+            padding: 10px;
+        }
+        li {
+            display: inline;
+            /* margin-right: 20px; */
+            background-color: slategray;
+            color: white;
+            padding: 5px 10px;
+        }
+        li:hover {
+            background-color: darkslategray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Display 속성은 태그의 존재방식을 변경할 수 있다</h1>
+    <ul>
+        <li>File</li>
+        <li>Edit</li>
+        <li>Selection</li>
+        <li>View</li>
+        <li>Go</li>
+    </ul>
+    <script>
+        document.querySelector('ul li:last-child').addEventListener('click', ()=> {
+            alert('페이지 이동을 하시겠습니까?');
+        });
+    </script>
+</body>
+</html>

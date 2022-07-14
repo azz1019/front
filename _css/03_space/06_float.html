@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float, clear</title>
+    <style>
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: skyblue;
+        }
+        #menu {
+            width: 30%;
+            height: 300px;
+            float: left;
+            background-color: pink;
+        }
+        #content {
+            width: 70%;
+            height: 300px;
+            float: right;
+            background-color: beige;
+        }
+        #footer {
+            width: 100%;
+            height: 150px;
+            clear: both;
+            background-color: aquamarine;
+        }
+        #what {
+            width: 50%;
+            height: 200px;
+            background-color: plum;
+        }
+        .bt {
+            width: 80%;
+            border: 1px solid black;
+        }
+        .bt-img {
+            width: 10%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>레이아웃을 위해 많이 사용됨</h1>
+    <h3>float이 적용된 엘리먼트는 다음에 오는 엘리먼트에게도 영향을 미침</h3>
+    <h3>float의 영향을 받는 엘리먼트가 영향을 벗어나려면 clear속성을 사용</h3>
+    <div id="header"></div>
+    <div id="menu"></div>
+    <div id="content"></div>
+    <div id="what"></div>
+    <div id="footer"></div>
+
+    <div class="bt">
+        <p>
+            <img class="bt-img" src="cat_logo.png" alt="">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+        </p>
+    </div>
+</body>
+</html>

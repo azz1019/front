@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경계선</title>
+    <style>
+        /*h1, h3, ol, div, h4, p, ul, li {
+            border: 1px solid red; 축약형 short-hand
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+        }*/
+        h1 {
+            /*경계선은 border의 기본3개 속성을 우선적용한 후 스타일링을 한다*/
+            border: 2px solid red;
+            border-radius: 15px;
+        }
+        h3 {
+            border: 2px dashed orange;
+        }
+        h4 {
+            border: 3px solid red;
+            border-radius: 1px 5px 10px 20px;
+        }
+        p {
+            height: 200px;
+            border-width: 5px 10px 30px;
+            border-style: solid dotted dashed;
+            border-color: lightpink lightblue lightgreen; /*3개 넣으면 상 좌우 하*/
+        }
+        ol {
+            border-width: 2px;
+            border-style: solid;
+            border-color: lightpink lightblue; /*2개 넣으면 상하 좌우*/
+            list-style: none;
+            padding: 10px;
+        }
+        ol li {
+            border-width: 2px;
+            border-top-style: solid;
+            border-top-color: lightpink;
+            border-left-style: solid;
+            border-left-color: powderblue;
+            
+        }
+        .list {
+            border-width: 1px 5px 15px 20px;
+            border-style: solid dashed dotted double;
+            border-color: lightcoral lightpink lightblue lightgreen;
+        }
+        .image {
+            width: 300px;
+            height: 200px;
+            background-image: url(../../_html/images/river-kao-5LVbbG74ykI-unsplash.jpg);
+            background-size: 300px;
+            border-radius: 10px 10px 0px 0px;
+        }
+        .card {
+            width: 300px;
+            height: 200px;
+            background-color: antiquewhite;
+            border-radius: 0px 0px 10px 10px;
+            color: brown;
+        }
+        .explanation {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>경계선은 html element들간 영역을 구분하는 기준이됨</h1>
+    <!-- background에 그림을 깔고 radius를 주면 테두리가 동글동글 -->
+    <h3>경계선은 box model을 기준으로 거의모든 태그에 존재함</h3>
+    <ol>
+        <li>경계선두께 : border-width</li>
+        <li>경계선색상 : border-color</li>
+        <li>경계선모양 : border-style</li>
+        <li>경계선모서리 곡률 : border-radius</li>
+    </ol>
+    <div class="container">
+        <h4 class="title">Title</h4>
+        <p class="content">Content</p>
+        <ul class="list">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+    </div>
+
+    <div class="image"></div>
+    <div class="card">
+        <div class="explanation">
+            고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이고양이
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        div {
+            border: 1px solid red;
+            padding: 20px;
+            margin: 50px;
+        }
+        .bt {
+            border: 1px dashed red;
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            margin-top: 10px;
+            margin-right: 50px;
+            margin-bottom: 100px;
+            margin-left: 200px;
+        }
+        .third {
+            border: 1px solid black;
+            padding: 10px 50px;
+            width: 300px;
+            margin: auto;
+        }
+        .fourth {
+            outline: 5px dotted blue;
+            border-style: none;
+            border-radius: 10px;
+            /* border: 1px solid black; */
+            padding: 10px 50px 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>모든 태그 element는 box model로 인식되어 경계선을 기준으로 공간 형성이 되어있다</h1>
+    <div>
+        div element의 box model
+    </div>
+    <div class="bt">
+        박스모델에 의거해 마진, 패딩의 프로퍼티 값 알아보기
+    </div>
+    <div class="third">
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+    </div>
+    <div class="fourth">
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+        가장하단 div태그 
+    </div>
+</body>
+</html>

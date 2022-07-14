@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        .fixed {
+            border: 5px solid black;
+            position: fixed;
+            /* top: ;
+            left: ; */
+            right: 1%;
+            bottom: 1%;
+            width: 200px;
+            overflow: auto;
+        }
+        .li-1st {
+            display: inline;
+            border: 1px dashed red;
+        }
+        .li-2nd {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            display: inline;
+            border: 1px dashed green;
+        }
+        .outer {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            border: 2px solid blue;
+        }
+        .inner {
+            position: absolute;
+            right: 3px;
+            bottom: 10px;
+            width: 200px;
+            height: 100px;
+            border: 2px solid orange;
+        }
+        nav {
+            /* position: fixed; */
+            position: sticky;
+            top: 0px;
+            width: 100%;
+            border-bottom: 1px solid salmon;
+            background-color: white;
+        }
+        nav a {
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Display속성을 좀 더 유동적으로 사용할 수 있게 위치값을 부여하는것</h1>
+    <nav>
+        <a href="">Menu1</a>
+        <a href="">Menu1</a>
+        <a href="">Menu1</a>
+        <a href="">Menu1</a>
+        <a href="">Menu1</a>
+    </nav>
+    <ul>
+        <li>position: static => default, 별도 지정하지 않음</li>
+        <li>position: fixed => 화면(screen영역)특정 위치에 고정</li>
+        <li>position: sticky => 스크롤에 반응하여 특정 위치에 고정</li>
+        <li>position: relative => 엘리먼트들끼리 위치값에 영향을 줌(관계가 있다)</li>
+        <li>position: absolute => 엘리먼트의 위치를 절대적인 위치로 배정(기준이되는 엘리먼트는 relative 속성을 갖는 가장 가까운 조상 엘리먼트) 만약에 가장가까운 조상 엘리먼트가 relative속성을 갖고 있지 않으면? document body(body태그로 생각해도 무방함), body태그 X</li>
+    </ul>
+    <div class="fixed">
+        네비바, 위로가기, 특정위치로 이동 링크에 많이사용
+    </div>
+    <div class="outer">
+        <div class="inner">
+            inner div
+        </div>
+    </div>
+    <ol>
+        <li class="li-1st">Dummy line</li>
+        <li class="li-2nd">Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+        <li>Dummy line</li>
+    </ol>
+</body>
+</html>
