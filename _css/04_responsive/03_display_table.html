@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispay : table</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+        .title_item {
+            display: block;
+            font-size: 1em;
+        }
+        .title_item, .desc_item {
+            margin-top: 10px;
+        }
+        .desc_item {
+            font-size: 0.75em;
+        }
+        .boxwrap {
+            display: table;
+            width: 100%;
+            background-color: coral;
+            table-layout: fixed;
+        }
+        .boxwrap .box {
+            border: 1px solid white;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px;
+        }
+        .thumb img {
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>display:flex와 비슷하고 layout에 적극적으로 활용되고 있음</h1>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb"><img src="images/sarah-janelle-5exGltqzrSc-unsplash.jpg" alt=""></span>
+            <strong class="title_item">제목1</strong>
+            <p class="desc_item">설명부분 블라블라<br>블라블라</p>
+        </div>
+    </div>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb"><img src="images/sarah-janelle-5exGltqzrSc-unsplash.jpg" alt=""></span>
+            <strong class="title_item">제목2</strong>
+            <p class="desc_item">설명부분 블라블라<br>블라블라</p>
+        </div>
+    </div>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb"><img src="images/sarah-janelle-5exGltqzrSc-unsplash.jpg" alt=""></span>
+            <strong class="title_item">제목3</strong>
+            <p class="desc_item">설명부분 블라블라<br>블라블라</p>
+        </div>
+    </div>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb"><img src="images/sarah-janelle-5exGltqzrSc-unsplash.jpg" alt=""></span>
+            <strong class="title_item">제목4</strong>
+            <p class="desc_item">설명부분 블라블라<br>블라블라</p>
+        </div>
+    </div>
+</body>
+</html>

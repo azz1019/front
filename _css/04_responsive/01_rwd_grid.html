@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 그리드</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100%;
+        }
+        .header {
+            height: 60px;
+            background-color: silver;
+        }
+        .main-img {
+            height: 350px;
+            background-color: whitesmoke;
+        }
+        .subject {
+            height: 320px;
+            background-color: tomato;
+        }
+        .content {
+            height: 380px;
+            background-color: tan;
+        }
+        .sub {
+            height: 200px;
+            background-color: pink;
+        }
+        .footer {
+            height: 200px;
+            background-color: darkcyan;
+        }
+        @media screen and (min-width: 768px) {
+            .main-img {
+                height: 550px;
+            }
+            .subject {
+                height: 320px;
+            }
+            .content {
+                width: 50%;
+                float: left;
+                height: 400px;
+            }
+            .sub {
+                width: 50%;
+                float: right;
+                height: 400px;
+            }
+            .footer {
+                clear: both;
+                height: 200px;
+            }
+        }
+        @media screen and (min-width: 1440px) {
+            .main-img {
+                height: 600px;
+            }
+            .subject {
+                width: 50%;
+                float: left;
+                height: 400px;
+            }
+            .content {
+                width: 50%;
+                float: right;
+                height: 200px;
+            }
+            .sub {
+                width: 50%;
+                float: right;
+                height: 200px;
+            }
+            .footer {
+                clear: both;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <div class="header"></div>
+    <div class="main-img"></div>
+    <div class="subject"></div>
+    <div class="content"></div>
+    <div class="sub"></div>
+    <div class="footer"></div>
+</body>
+</html>
