@@ -1,0 +1,44 @@
+#container {
+    text-align: center;
+}
+#background {
+    width: 900px;
+    height: 900px;
+    margin: auto;
+    background-image: url(../images/candra-winata-CYOFvtpOIpU-unsplash.jpg);
+    background-position: center center;
+}
+#popup {
+    position: relative;
+    width: 70%;
+    height: 30%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid gray;
+    float: left;
+    top: 30%;
+    left: 15%;
+}
+#logo, #icon {
+    padding-top: 15px;
+    font-size: 2em;
+}
+#title {
+    padding-top: 15px;
+    font-size: 1em;
+}
+#sub_title {
+    padding-top: 10px;
+    font-size: 0.7em;
+}
+#end_title {
+    position: absolute;
+    width: 100%;
+    left: -1px;
+    bottom: -1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.7em;
+    background-color: lightgrey;
+    border: 1px solid gray;
+}

@@ -1,0 +1,43 @@
+.container {
+    text-align: center;
+}
+div {
+    margin: auto;
+    height: 200px;
+}
+.red {
+    background-color: #ff0000;
+}
+.orange {
+    background-color: #ffa500;
+}
+.yellow {
+    background-color: #ffff00;
+}
+.green {
+    background-color: #008000;
+}
+.blue {
+    background-color: #0000ff;
+}
+.purple {
+    background-color: #4b0082;
+}
+.dark-purple {
+    background-color: #800080;
+}
+.w25 {
+    width: 25%;
+}
+.w50 {
+    width: 50%;
+}
+.w100 {
+    width: 100%;
+}
+.float-left {
+    float: left;
+}
+.clear-both {
+    clear: both;
+}

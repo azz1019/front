@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.my-carousel-img {
+    width: 100%;
+    height: 400px;
+}
+.my-warning {
+    margin: 50px 0px 16px;
+}
+.my-container {
+    /* display: table;
+    justify-content: center;
+    align-items: center; */
+}
+.my-card {
+    width: 300px;
+    display: inline-block;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.my-card-body {
+    /* padding: 10px;    */
+}
+.my-card-title {
+    font-size: 18px;
+    color: #4a4a4a;
+}
+.my-card-subtitle {
+    font-size: 16px;
+    color: #4a4a4a;
+}

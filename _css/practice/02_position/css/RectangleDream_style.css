@@ -1,0 +1,40 @@
+#container {
+    text-align: center;
+}
+#top, #middle, #bottom {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    border: 3px solid black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+#middle {
+    position: relative;
+    height: 400px;
+}
+#red_box, #green_box, #blue_box {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
+#red_box {
+    top: 10%;
+    left: 10%;
+    background-color: red;
+    z-index: 3;
+}
+#green_box {
+    top: 25%;
+    left: 25%;
+    background-color: green;
+    z-index: 2;
+}
+#blue_box {
+    top: 40%;
+    left: 40%;
+    background-color: blue;
+    z-index: 1;
+}

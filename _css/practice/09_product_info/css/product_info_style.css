@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+div {
+    width: 100%;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.header {
+    width: 100vw;
+    height: 50px;
+    background-color: #535353;
+    padding-left: 20px;
+    font-size: 30px;
+    color: lightseagreen;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+.main-img {
+    height: 500px;
+    /* background-color: red; */
+}
+.subject {
+    height: 400px;
+    /* background-color: orange; */
+    padding-left: 30px;
+    padding-right: 30px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.subject div:nth-child(1)
+{
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+.subject div:nth-child(2)
+{
+    font-size: 20px;
+    color: #1b1b1b;
+    margin-bottom: 30px;
+}
+.subject div:nth-child(3)
+{
+    font-size: 16px;
+    color: #7a7a7a;
+}
+.sub-1 {
+    height: 500px;
+    /* background-color: yellow; */
+}
+.sub-2 {
+    position: relative;
+    height: 300px;
+    /* background-color: greenyellow; */
+}
+.sub-3 {
+    height: 300px;
+    /* background-color: aqua; */
+}
+.view-more {
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding: 9px 40px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border: 4px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 768px) {
+    .main-img {
+        height: 800px;
+    }
+    .subject {
+        height: 300px;
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+    .sub-1 {
+        height: 400px;
+        width: 50%;
+        float: left;
+    }
+    .sub-2 {
+        height: 200px;
+        width: 50%;
+        float: right;
+    }
+    .sub-3 {
+        height: 200px;
+        width: 50%;
+        float: right;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .main-img {
+        height: 1000px;
+        width: 50%;
+        float: left;
+    }
+    .subject {
+        height: 500px;
+        width: 50%;
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+    .content {
+        width: 50%;
+        float: right;
+    }
+    .sub-1 {
+        height: 500px;
+        width: 50%;
+        float: left;
+    }
+    .sub-2 {
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+    .sub-3 {
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+}
