@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의리턴</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>함수의 리턴 유무에따라 값을 돌려받을수 있고 함수실행의 종료시점을 정할수있다</h1>
+    <script>
+        function return_function(num1, num2) {
+            let result = num1 * num2;
+            return result;
+            // 함수가 연산한 결과값이 외부 혹은 다시 필요할때 return 키워드를 사용함
+            //console.log(`result : ${result}`);
+        };
+        console.log(`result : ${return_function(1, 2)}`);
+        
+       let my_num = return_function(10, 30);
+       console.log(`내가 기다린 숫자 : ${my_num}`);
+
+       function div_func(n1, n2) {
+           return n1 / n2;
+       };
+       function mul_func(n1, n2) {
+           return div_func(n1, n2);
+       };
+       function sub_func(n1, n2) {
+           return mul_func(n1, n2);
+       };
+       function sum_func(n1, n2) {
+           return sub_func(n1, n2);
+       };
+       const result = sum_func(1, 2);
+       console.log(`result : ${result}`);
+
+       // 함수표현식 function expression, ES5부터 가능
+       /*hello = function() {
+           return "hello world";
+       };
+       console.log(hello());
+       hello = () => {
+           return "hello world";
+       };
+       console.log(hello());*/
+       // 함수선언식과 함수표현식은 형태가 다른 같은 함수
+       function my_func_old(my_function_param) {
+           console.log('나를불렀니?');
+           return 'hello? ' + my_function_param;
+       };
+       const my_func = function(my_name) {
+           console.log('아닝');
+           return 'hello! ' + my_name;
+       };
+       console.log(my_func('혜경'));
+       console.log(my_func_old(my_func));
+    </script>
+</body>
+</html>

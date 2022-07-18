@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 - 데이터받기</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>form태그를통해 데이터를 받아오기</h1>
+    <ul>
+        <li>input, textarea, select, html element의 속성, 텍스트등의 데이터를 받아오기</li>
+        <li>form태그의 데이터는 value속성의 값으로 매핑되어 있으므로 value속성을 호출하면된다</li>
+        <li>select의 option, radio, checkbox의 value는 선택된값을 가져와야하므로 추가코드 필요</li>
+        <li>value속성의 데이터는 모두 string으로 처리된다</li>
+    </ul>
+    <form action="" method="" id="my_form">
+        <fieldset>
+        <legend>이벤트를 활용한전송</legend>
+            ID : <input type="text" id="user_id"><br>
+            PWD : <input type="password" id="user_password"><br>
+            Birth : <input type="date" id="user_birth"><br>
+            Pin : <input type="number" id="user_pin">
+            <button type="button" id="submit_button" onclick="click_event_occured();">전송</button>
+            <button type="button" id="list_button" onclick="make_list();">리스트로출력</button>
+        </fieldset>
+    </form>
+    <h3 id="info"></h3>
+    <ol id="ol"></ol>
+    <script>
+        function click_event_occured() {
+            let user_id = document.getElementById('user_id').value;
+            let user_password = document.getElementById('user_password').value;
+            let user_birth = document.getElementById('user_birth').value;
+            let user_pin = document.getElementById('user_pin').value;
+
+            document.getElementById('info').innerText = `${typeof user_id} : ${user_id}`;
+            //debugger; // 개발자도구 오픈상태에서 현재라인에서 실행 일시정지
+            document.getElementById('info').innerText += `${typeof user_password} : ${user_password}`;
+            //debugger; // 다음 디버거로이동 f8 (크롬기준)
+            document.getElementById('info').innerText += `${typeof user_birth} : ${user_birth}`;
+            //debugger;
+            document.getElementById('info').innerText += `${typeof user_pin} : ${user_pin}`;
+        }
+        function make_list() {
+            let user_id = document.getElementById('user_id').value;
+            let user_password = document.getElementById('user_password').value;
+            let user_birth = document.getElementById('user_birth').value;
+            let user_pin = document.getElementById('user_pin').value;
+
+            user_birth = new Date(user_birth);
+            console.log(typeof user_birth);
+            user_pin = parseInt(user_pin); // parseInt('숫자로 변경될수있는 문자만 가능')
+            user_pin = Number(user_pin); // Number('숫자로 변경될수 있는값')
+            console.log(user_pin);
+            //user_pin = parseInt("park");
+            //console.log(typeof user_pin); number
+
+            //let ol = document.getElementById('ol');
+            /*ol.innerHTML = `<li>${typeof user_id} : ${user_id}</li>`;
+            ol.innerHTML += `<li>${typeof user_password} : ${user_password}</li>`;
+            ol.innerHTML += `<li>${typeof user_birth} : ${user_birth}</li>`;
+            ol.innerHTML += `<li>${typeof user_pin} : ${user_pin}</li>`;*/
+            let str = `<li>${typeof user_id} : ${user_id}</li><li>${typeof user_password} : ${user_password}</li><li>${typeof user_birth} : ${user_birth}</li><li>${typeof user_pin} : ${user_pin}</li>`;
+            ol.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

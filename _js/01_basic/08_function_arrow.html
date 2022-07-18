@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표함수</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>화살표함수(Arrow Function) : ES6부터 사용가능한 함수정의법</h1>
+    <h3>가독성은 낮으나 코드량을 많이 줄일수있고 표현식처럼 변수화를 사용할수있다</h3>
+    <script>
+        const arrow_func = (param1, param2) => {
+            let result = param1 + param2;
+            return result;
+        };
+        const arrow_func2 = (p1, p2) => p1 + p2; // 리턴할값이 있을때 사용하는방식
+        const arrow_fun3 = (a, b) => {console.log(`리턴없당`);}; // 리턴할값이 없을때 사용하는방식
+        let result = arrow_func2(1, 4);
+        console.log(`result : ${result}`);
+    </script>
+</body>
+</html>

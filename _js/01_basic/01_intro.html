@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 소개</title>
+    <script>
+        console.log(`백틱을 사용하여 출력`);
+        console.log('어퍼스트로피 사용하여 출력');
+        console.log("쿼테이션 사용하여 출력");
+        console.log(`여기까지 head태그 내부에서 작성한 출력`);
+    </script>
+    <script src="./01_intro.js"></script>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>자바스트립트 언어 사용법</h1>
+    <ol>
+        <li>&lt;script&gt;&lt;/script&gt;내부에 작성한다</li>
+        <li>파일이름.js라는 파일을 만들어서 내부에 코드를 작성하고 script src="?"경로를 불러온다</li>
+        <li>head태그 내부스크립트 태그 안에 직접 작성할 수 있다(단, 사용시 주의점이 있음)</li>
+        <li>body태그 내 가장 하단에 script태그를 위치시켜 내부에 코드를 작성한다(가장많이 사용)</li>
+    </ol>
+    <script src="./01_intro.js"></script>
+    <script>
+        console.log(`여기서부터 body태그 가장하단에 직접 작성한부분`);
+        console.log(`자바스크립트는 이렇게 작성위치가 다양함`);
+        console.log(`자바스크립트의 문법이 다른 언어에 비해 비해 굉장히 유동적임`);
+        console.log(`명령어 라인의 종료는 ;(세미콜론)을 통해 브라우저에 전달`);
+    </script>
+    <script>
+        // 한줄주석 : VSCode, Eclipse = ctrl + /
+        /*여러줄주석 : ctrl + shift + /
+        여러줄주석
+        여러줄주석*/
+        // 자바스크립트 주석도 브라우저에서 읽으므로 source탭에서 보임!!!
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>객체 : 식별할수있는것을 상세특징으로 표현하려한 형식(코드타입)</h1>
+    <ul>
+        <li>const상수로 선언을 하는것이 일반적 : 객체의 지속성을 확보하기위함</li>
+        <li>{};안에 속성명 : 속성값, 속성명 : 속성값,...으로 표현</li>
+        <li>속성의 명칭은 같은 객체 내에서는 중복되면 안됨(고유키)</li>
+        <li>객체내부의 속성값으로 사용할수있는 데이터타입은 제한이 없다</li>
+        <li>겍체 속성값으로 익명함수를 정의하면 그 함수를 메서드라고 부른다, 메서드명은 속성명이 됨</li>
+    </ul>
+    <script>
+        const car = {name : 'mycar', year : 2008};
+        let mycar = {name : 'supercar', hp : 200};
+        mycar = 100; // 가능, mycar라는 객체는 사라짐, 객체를 선언하여 활용하려고 하는 목적을 잃어버림
+
+        const me = {
+            last_name : 'lee',
+            first_name : 'hyekyung',
+            age : 28,
+            addr : 'seoul',
+            is_developer : true,
+            "hobby" : "tapdance",
+            "my favor" : "ice choco",
+            avail : {
+                year : 2021,
+                title : 'javascript',
+                ver : 'ES6+',
+                project : 'React JS',
+                intro : function() {
+                    //console.log(`${me.avail.title}:${me.avail.ver}=${me.avail.project}`);
+                    return `${this.title}:${this.ver}=${this.project}`; // this키워드 : 내가 소속된 객체를 가리킴
+                },
+            },
+            year : 2022,
+        };
+        console.log(me.addr, me.year);
+        console.log(me.avail.year, me.avail.project);
+        console.log(me.avail.intro()); // 그냥 intro하면 함수실행이 아닌 지목, ()하면 invoke 홀출실행
+        console.log(me.hobby, me["my favor"], me["age"]);
+        console.log(me["avail"]["title"]);
+        console.log(me["avail"]["intro"]());
+
+        const musician = {
+            name : 'iu',
+            age : 30,
+            playlist : {
+                first : 'abc',
+                second : 'ddd',
+                third : 'hihi'
+            },
+            jukebox : function(first, second, third) {
+                console.log(`${this.playlist.first}, ${this.playlist.second}, ${this.playlist.third}`);
+                return `${first}, ${second}, ${third}`;
+            },
+        };
+        let playlist = musician.jukebox("11", "22", "33");
+        console.log(playlist);
+        console.log(typeof playlist);
+        console.log(typeof playlist === typeof musician.name);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 타입</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>변수나 상수에 할당할 수 있는 값의종류, 데이터의 구분 및 활용을 위해 매우 중요</h1>
+    <ul>
+        <li>숫자 Number : 정수(11, 100, 0, -30), 실수(소수점이 있는숫자), NaN(Not a Number : 숫자가 아님이라는 값)</li>
+        <li>문자 string : '', "", ``으로 감싼 모든 값</li>
+        <li>불리언 boolean : 참/거짓 true, false</li>
+        <li>객체 Object : 1개 이상의 데이터가 특정 구조를 갖고있는 형태(아무것도 없는 사실도 1개로 취급)</li>
+        <li>배열 Array : [1, 2, ...]형태로 이루어진 집합 데이터(순서, 길이 있음)</li>
+        <li>미정된 값 undefined : 값이 할당되지 않음</li>
+        <li>알수없는 존재 null : 무언가 있긴 하지만 파악이 안됨</li>
+        <li>DataType알고싶을때 : typeof 변수 or 값</li>
+    </ul>
+    <script>
+        let num = 100;
+        let str = '문자';
+        let bool = true;
+        let obj1 = {}; // 이안에 특정형태를 만들수있음
+        let obj2 = new Object(); // 자바스크립트에서 제공하는 implicit(내장된) 객체
+        let arr1 = [1, 2]; // 대괄호안에 콤마로 분리된 데이터를 넣음(주의 : 같은타입의 데이터로만 구성)
+        let arr2 = new Array(); // 자바스크립트에서 제공하는 Array객체
+        let undi = undefined;
+        let undi2;
+        let nullable = null;
+        console.log(`num : ${typeof num}`);
+        console.log(`Nan : ${typeof NaN}`);
+        console.log(`str : ${typeof str}`);
+        console.log(`bool : ${typeof bool}`);
+        console.log(`obj1 : ${typeof obj1}`);
+        console.log(`obj2 : ${typeof obj2}`);
+        console.log(`arr1 : ${typeof arr1}`);
+        console.log(`arr2 : ${typeof arr2}`);
+        console.log(`undi : ${typeof undi}`);
+        console.log(`undi2 : ${typeof undi2}`);
+        console.log(`nullable : ${typeof nullable}`);
+    </script>
+    <ol>
+        <li>기본자료형 Primitive Type(값을 저장하고있는 위치가 메모리의 주소값이 가르키는 곳에 직접 할당되어있다) : number, boolean, string(원래 참조자료형이지만 사용의 편의성을 위해 기본자료형처럼 사용할수있도록 변환됨)</li>
+        <li>참조자료형 Reference Type(값이 저장되어 있는 메모리 주소값을 참조하고 있는 주소값이 할당되어있다) : 나머지 string, object, array, funtion, null, undefined등의 자료형</li>
+    </ol>
+</body>
+</html>

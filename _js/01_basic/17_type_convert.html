@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형변환, casting</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>데이터타입을 원하는 형식으로 변경하는기법</h1>
+    <ul>
+        <li>string to number : Number("string number value"), parseInt("string integer value"), parseFloat("string float value")</li>
+        <li>number to string : 123.toString(), (123.45).toString()</li>
+        <li>string to boolean : Boolean("string value"), Boolean("")</li>
+        <li>boolean to string : String(true), String(false)</li>
+        <li>number to boolean : Boolean(number value), Boolean(1), Boolean(0)</li>
+        <li>boolean to number : Number(true), Number(false)</li>
+    </ul>
+    <script>
+        console.log(String(true), typeof String(true)); // "true", string
+        console.log(Boolean(123), typeof Boolean(123)); // true, boolean
+        console.log(Boolean(-123), typeof Boolean(-123)); // true, boolean
+        console.log(Number(true), typeof Number(true)); // 1, number
+        console.log(Number(false), typeof Number(false)); // 0, number
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1 id="title">이벤트객체는 전역객체로써 모든 태그에 객체를 참조시킬수 있다!</h1>
+    <ul id="ul1" class="uls">
+        <li>a태그와 button태그에 이벤트를 주로 참조시켜 클릭에대한 반응을 기대할수있는 구조로 만드는게 일반적</li>
+        <li>a태그는 href속성에 의해 자체이동(동기화방식)이 구현되어서 별도의 이동속성을막는 코드가 필요하다</li>
+        <li>이벤트객체를 부여하는 방식에는 크게 3가지가 있는데 각자 목적과 작동방식이 다르다</li>
+    </ul>
+    <h3>이벤트 연습을위해 콘솔이아닌 html문서(document영역)에 출력하는 방식을 이용할예정</h3>
+    <ul id="ul2" class="uls">
+        <li>화면출력 영역을 document영역(객체)라고 한다</li>
+        <li>html태그는 html Element, 속성은 attribute, 일반텍스트는 textNode라고 함</li>
+        <li>html로 출력하기 : innerHTML이라는 property를 사용</li>
+        <li>text로 출력하기 : innerText라는 property를 사용</li>
+        <li>html element를 id값으로 객체 가져오기 : getElementById('idname')</li>
+        <li>html element를 css선택자를 사용하여 가져오기 : querySelector('selector')</li>
+    </ul>
+    <button type="button" onclick="javascript:event_func();">클릭해보세요</button>
+    <button type="button" onclick="javascript:event_func2(10);">클릭해보세요</button>
+    <button type="button" onclick="alert('경고창')">alert</button>
+    <h1 id="print_result"></h1>
+    <script>
+        function event_func() {
+            let print_result = document.getElementById('print_result');
+            print_result.innerText = '버튼을 클릭하여 텍스트를 작성한것~';
+        };
+        function event_func2(num) {
+            let print_result = document.getElementById('print_result');
+            print_result.innerHTML = '<span style="color : red;">스팬태그</span>를 사용했어요!' + num;
+        };
+    </script>
+</body>
+</html>

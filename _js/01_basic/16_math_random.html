@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & Random</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>수학관련 메서드는 주로 사용하는것만 사용법을 익혀도 괜찮다</h1>
+    <h1>랜덤메서드는 난수를 발생시킬 필요가있는 부분에 주로사용된다</h1>
+    <ul>
+        <li>Math.round(), Math.trunc(), Math.ceil(), Math.floor(), Math.random(), Math.abs(), Math.min(), Math.max(), Math.pow()</li>
+        <li>Math.random() : 0(포함)부터 1(미포함)미만 사이의 난수(실수) 1개를 무작위로 리턴함</li>
+    </ul>
+    <script>
+        let pi = 3.14, pi2 = -3.14;
+        console.log(Math.ceil(pi), Math.ceil(pi2));
+        console.log(Math.floor(pi), Math.floor(pi2));
+
+        // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 => 10을 리턴하게 만든다
+        function ceiling_to10(page) {
+            return Math.ceil(page / 10) * 10;
+        }
+        console.log(ceiling_to10(1));
+        console.log(ceiling_to10(2));
+        console.log(ceiling_to10(3));
+        console.log(ceiling_to10(4));
+        console.log(ceiling_to10(5));
+        console.log(ceiling_to10(6));
+        console.log(ceiling_to10(7));
+        console.log(ceiling_to10(8));
+        console.log(ceiling_to10(9));
+        console.log(ceiling_to10(10));
+
+        // 난수발생연습
+        console.log(Math.random()); // 0.0~1.0(미만)사이의 난수 1개
+        console.log(Math.floor(Math.random() * 10)); // 0부터 10(미만)사이의 정수 1개 추출하기
+        console.log(Math.floor(Math.random() * 10) + 1); // 1부터 10까지의 정수 1개 추출하기
+        console.log(Math.floor(Math.random() * 51) + 50); // 50부터 100까지의 정수 1개 추출하기, (random() * (목표값 - 시작값) + 1) + (시작값)
+        console.log(Math.floor(Math.random() * 71) + 30); // 70부터 100까지의 정수 1개 추출하기
+
+        // This JavaScript function always returns a random number between min (included) and max (excluded):
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+        }
+        // This JavaScript function always returns a random number between min and max (both included):
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>자바스크립트 변수</h1>
+    <h3>변수란? 특정시점(시간, 공간)에 원하는 값을 갖고있는 코드(존재)</h3>
+    <h2>변수의특징</h2>
+    <ol>
+        <li>코드가 실행되는 시점의 상태값을 갖고 있는 개념</li>
+        <li>변하는 값을 주로 다룬다고 해서 변수라고 칭함</li>
+        <li>자바스크립트에서는 변수를 선언(배정, 할당, 정의)할때 let, var를 사용</li>
+        <li>ES6(2015)부터는 let키워드를 사용하기를 적극 권장함!</li>
+    </ol>
+    <script>
+        // 변수선언
+        // camelCase : 자바, C, C++, C#에서 주로 사용
+        let myFirstVariable; // 변수명만 선언함, 값 x -> 변수를 사용할 수 있도록 메모리에 할당
+        // snake_case : 자바스크립트, 파이썬에서 주로 사용(권장방식)
+        let my_first_variable;
+
+        // 변수초기화(가장 처음으로 값을 할당함)
+        myFirstVariable = 100;
+        my_first_variable = "thousand";
+        // 변수선언 및 초기화
+        let my_second_variable = 100000;
+        // 변수 값 변경
+        my_second_variable = 10;
+        // 선언하지 않고 변수를 사용하면? 다른언어는 불가능 자바스크립트는 가능
+        // 하지만 선언없이 변수를 할당하면 그 변수는 전역에 영향을 미치므로 가급적 사용x
+        my_third_variable = '전역변수';
+        // 변수명작성시 주의사항
+        // 의미를 바로 알수있는 변수명을 추천
+        let crAge = 33; // cr이라는 의미파악이 힘듬, 축약단어의 정도를 고려
+        let currAge = 22;
+        // let 15stage = 12345; 숫자로 시작하는것 불가능, 중간이나 끝은 가능
+        // 변수명은 문자를 중심으로 구성하면 숫자는 정확한 의미를 부여할 수 있을때
+        let send2mg = '보낼메세지';
+        let love4you = '사랑합니다';
+        let upd8 = '업데이트(upd eight)';
+        // 변수명은 할당될 값과의 의미도 일치하도록 한다
+        let yourAge = 24; // ok
+        yourAge = '이십사'; // 굳이?
+        yourAge = false; // 무슨의미인지?
+        yourAge = "why?"; // 나이는 일반적으로 문자를 배정하지 않음
+        // 콘솔에 변수를 출력해보자
+        let my_name = 'Hye Kyung';
+        let my_age = 28;
+        let my_addr = 'seoul';
+        let my_major = 'com';
+        let my_hobby = 'tab dance';
+        let my_favor = 'ice choco';
+        console.log('이름 :', my_name); // ,는 띄어쓰기 한칸 해줌
+        console.log('나이 : ' + my_age);
+        console.log("주소 :", my_addr);
+        console.log(`전공 : ` + my_major);
+        console.log(`취미 :`, my_hobby);
+        console.log(`기호식품 : ${my_favor}`); // 백틱내부에 코드 삽입을 ${}를 통해 가능
+        console.log(`16*16=${16*16}`);
+    </script>
+
+    <h1>상수 : 한번선언 및 초기화를 하면 변경할 수 없는 변수</h1>
+    <h3>상수명은 대문자로 snake case를 사용함</h3>
+    <h3>const라는 키워드를 사용</h3>
+    <h3>상수는 고정된값을 사용하는 의미로 규칙, 룰, 참조값등을 정의할때 사용</h3>
+    <h3>등급에따른 할인율, 특정기간 적용이율, PI값, 고유번호 등</h3>
+    <script>
+        let his_name = 'aabbcc';
+        const HIS_AGE = 42; // 이후에 동일한 영역에 선언하거나 값을 변경할 수 없음
+        // HIS_AGE = 43; // 불가능!!
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>데이터를 원하는 형태로 변경 및 판단하기 위한 코드</h1>
+    <ul>
+        <li>산술연산자 : 사칙연산, 나머지연산, 제곱, 루트</li>
+        <li>대입연산자 : 자체 값을 연산 후 다시대입, 재귀적 연산이라고도 함</li>
+        <li>비교연산자 : 이상, 이하, 미만, 초과, 같음, 다름</li>
+        <li>논리연산자 : and, or, not and, not or, not</li>
+        <li>증감연산자 : 미리 정해진 일정 크기를 증가 혹은 감소</li>
+        <li>비트연산자 : 비트 단위로 연산(웹 분야에서는 확용도가 낮음)</li>
+        <li>그 외 연산자 : 특정 목적이나 형태를 갖는 연산자</li>
+    </ul>
+    <script>
+        // 산술연산자
+        console.log('산술연산자');
+        let num1 = 1000;
+        let num2 = 5;
+        let result = 0;
+        result = num1 + num2;
+        console.log(`result + : ${result}`);
+        result = num1 - num2;
+        console.log(`result - : ${result}`);
+        result = num1 * num2;
+        console.log(`result * : ${result}`);
+        result = num1 / num2;
+        console.log(`result / : ${result}`);
+        let num3 = 5.0;
+        result = num1 / num3;
+        console.log(`result / : ${result}, typeof : ${typeof result}`);
+        let num4 = 1000.5;
+        result = num4 / num3;
+        console.log(`result / : ${result}, typeof : ${typeof result}`);
+        console.log(`10 % 3 = ${10 % 3}`); // 10을 3으로 나눈 나머지
+        console.log(`10 ** 3 = ${10 ** 3}`); // 10의 3제곱
+
+        // 대입연산자
+        console.log('대입연산자');
+        num1 = 100;
+        console.log(`result += : ${num1 += num2}`); // num1 = num1 + num2; => 100 + 5 = 105
+        console.log(`result -= : ${num1 -= num2}`); // num1 = num1 - num2; => 105 - 5 = 100
+        console.log(`result *= : ${num1 *= num2}`); // num1 = num1 * num2; => 100 * 5 = 500
+        console.log(`result /= : ${num1 /= num2}`); // num1 = num1 / num2; => 500 / 5 = 100
+        console.log(`result **= : ${num1 **= num2}`); // num1 = num1 ** num2; => 100 ** 5 = 10000000000
+        console.log(`result %= : ${num1 %= num2}`); // num1 = num1 % num2; => 10000000000 % 5 = 0
+        // console.log(Math.sqrt(num1)); 루트
+
+        // 증감연산자
+        console.log('증감연산자');
+        num1 = 100;
+        console.log(`result ++ : ${num1++}`);
+        num1++; // 1더하기
+        console.log(`result : ${num1}`);
+        num1--; // 1빼기
+        console.log(`result -- : ${num1}`);
+        console.log('증감연산자가 변수 뒤쪽에 붙어있으면 증감연산은 다음 호출때 적용되어 출력');
+        console.log(`result ++ : ${++num1}`);
+        console.log(`result : ${num1}`);
+        console.log(`result -- : ${--num1}`);
+
+        // 비교연산자
+        console.log('비교연산자');
+        console.log(`result > : ${num1 > num2}`);
+        console.log(`result < : ${num1 < num2}`);
+        console.log(`result >= : ${num1 >= num2}`);
+        console.log(`result <= : ${num1 <= num2}`);
+        console.log(`result == : ${num1 == num2}`);
+        num1 = 10, num2 = 10;
+        console.log(`result == : ${num1 == num2}`);
+        num2 = '10';
+        console.log(`result == : ${num1 == num2}`); // 값만 비교
+        console.log(`result === : ${num1 === num2}`); // 값과 타입 모두비교
+        console.log(`result != : ${num1 != num2}`); // 값만 비교
+        console.log(`result !== : ${num1 !== num2}`); // 값과 타입 모두비교
+        num1 = 'abcdeg', num2 = 'abcdefg'; // 97 98 99 100 101 103, 97 98 99 100 101 102 103
+        console.log(`result > : ${num1 > num2}`); // 문자의 같은 자리수의 아스키 코드값 비교
+
+        // 논리연산자 : 좌측과 우측의 boolean상태를 판단하여 조건만족을 판단함
+        console.log(`논리연산자`);
+        // &&연산자는 좌측이 true면 우측연산을 진행하므로 연산 순서에 의한 효율성 증가, 좌측이 false면 연산중지
+        console.log(`result && : ${true && true}`); // and연산자 : 좌측과 우측이 모두 true일때 true
+        console.log(`result && : ${true && false}`); // and연산자 : 좌측과 우측 중 한쪽이 false일때 false
+        console.log(`result && : ${false && true}`); // and연산자 : 좌측과 우측 중 한쪽이 false일때 false
+        console.log(`result && : ${false && false}`); // and연산자 : 좌측과 우측이 모두 false일때 false
+        // ||연산자는 좌측이 false면 우측연산을 진행하므로 연산 순서에 의한 효율성 증가, 좌측이 true면 연산중지
+        console.log(`result || : ${true || true}`); // or연산자 : 좌측과 우측 중 한쪽이라도 true일때 true
+        console.log(`result || : ${true || false}`); // or연산자 : 좌측과 우측 중 한쪽이라도 true일때 true
+        console.log(`result || : ${false || true}`); // or연산자 : 좌측과 우측 중 한쪽이라도 true일때 true
+        console.log(`result || : ${false || false}`); // or연산자 : 좌측과 우측이 모두 false일때 false
+        // !연산자 not 부정연산자 : 현재의 값을 반대로 바꿔서 연산
+        console.log(`result ! : ${!true}`);
+        console.log(`result !! : ${!!true}`);
+        console.log(`result !! : ${!(!true)}`);
+
+        // 삼항연산자
+        num1 = 10, num2 = 10;
+        console.log(`result ?: : ${num1 == num2 ? num1 : num2}`);
+
+        const PI = 3.14;
+        let triangle_baseline = 100, triangle_height = 34, triangle_area = 0;
+        let quadrangle_width = 45, quadrangle_height = 65, quadrangle_periphery = 0, quadrangle_area = 0;
+        let circle_radius = 7, circle_area = 0;
+        triangle_area = (triangle_baseline * triangle_height) / 2;
+        quadrangle_periphery = (quadrangle_width + quadrangle_height) * 2;
+        quadrangle_area = quadrangle_width * quadrangle_height;
+        circle_area = (circle_radius ** 2) * PI;
+        console.log(`result triangle area : ${triangle_area}`);
+        console.log(`result quadrangle periphery : ${quadrangle_periphery}`);
+        console.log(`result (triangle_area > circle_area) && (triangle_area > quadrangle_area) : ${(triangle_area > circle_area) && (triangle_area > quadrangle_area)}`);
+        console.log(`result (triangle_area > circle_area) || (triangle_area > quadrangle_area) : ${(triangle_area > circle_area) || (triangle_area > quadrangle_area)}`);
+
+        // 연봉 3000
+        // 월급여의 50%을 첫달에 저축후 2%씩 저축률 매달 증가
+        // 이자율 년 3%일때 1년후 받게될 원금+이자?
+        let salary = 3000 / 12 /*월급*/, saving_percent = 0.5 /*월저축률*/, saving_percent_increase = 0.02 /*월저축률 증가*/, saving_money = 0 /*월저축금액*/, interest_money = 0.03 /*이자*/, amount_of_money = 0 /*총수령액*/;
+        result = 0;
+        console.log(`salary : ${salary}`);
+
+        let loop_num = 0;
+        while( loop_num < 12) {
+            saving_money = salary * saving_percent;
+            console.log(`result ${loop_num + 1}번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+            amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+            saving_percent = saving_percent + saving_percent_increase;
+            console.log(`result ${loop_num + 1}번째 달 총수령액 : ${amount_of_money}`);
+            loop_num++;
+        }
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 1번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 1번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 2번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 2번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 3째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 3번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 4번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 4번째 달 총수령액 : ${amount_of_money}`);
+        
+        // saving_money = salary * saving_percent;
+        // console.log(`result 5번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 5번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 6번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 6번째 달 총수령액 : ${amount_of_money}`);
+       
+        // saving_money = salary * saving_percent;
+        // console.log(`result 7번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 7번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 8번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 8번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 9번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 9번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 10번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 10번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 11번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 11번째 달 총수령액 : ${amount_of_money}`);
+
+        // saving_money = salary * saving_percent;
+        // console.log(`result 12번째 월저축금액 : ${saving_money}, 월저축률 : ${saving_percent * 100}, 이자 : ${saving_money * interest_money}`);
+        // amount_of_money = amount_of_money + (saving_money + (saving_money * interest_money));
+        // saving_percent = saving_percent + saving_percent_increase;
+        // console.log(`result 12번째 달 총수령액 : ${amount_of_money}`);
+    </script>
+</body>
+</html>
