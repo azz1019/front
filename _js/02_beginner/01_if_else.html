@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if, else, else if</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>if(조건절) {code;}형식으로 만들어지며 조건절은 true나 false의 의미를 갖는 코드가 모두 올수있다</h1>
+    <script>
+        if(true) {
+            console.log("조건절이 참이면 실행된다");
+        }
+        if(1) console.log("중괄호 없는 조건문은 다음라인까지 첫 ;(세미콜론)으로 끝나는 코드를 조건절로 인식한다"); // 축약형, 추천하지 않지만 많은 개발자들이 사용하고있음, else문도 같은 방식으로 작동한다
+
+        let cond1 = true, cond2 = false, cond3 = true || false;
+        // 다중조건문 : 최초 1개의 조건절이 true이면 그 아래의 조건절을 실행하지 않는다
+        // 실행될 조건문의 확률이 높은 순으로 위에 존재해야 함, 연산속도 고려
+        if(cond1) {
+            console.log("첫번째 조건절의 실행문");
+        } else if(cond2) {
+            console.log("두번째 조건절의 실행문");
+        } else if(cond3) {
+            console.log("세번째 조건절의 실행문");
+        } else {
+            console.log("else절의 실행문");
+        }
+        console.log("조건문 실행완료");
+
+        // 중첩조건문(nested conditional
+        if (cond1) {
+            console.log("체크1");
+            if (cond2) {
+                console.log("체크1-cond2");
+            } else {
+                console.log("체크1-else");
+            }
+            console.log("체크1 종료");
+        } else {
+            console.log("체크2");
+            if(cond3) {
+                console.log("체크2-cond3");
+            } else if (cond1) {
+                console.log("체크2-cond1");
+            }
+            console.log("체크2 종료");
+        }
+        console.log("조건문 실행완료");
+    </script>
+</body>
+</html>

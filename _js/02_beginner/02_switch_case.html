@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>switch case절 : equal연산을 기반으로 만들어지는 매핑방식의 조건문</h1>
+    <h3>equal연산 및 반복 탐색연산에서 if else문보다 속도가 조금더 빠르다고함</h3>
+    <script>
+        let week = 'Monday';
+        switch (week) {
+            case 'monday' :
+                console.log('대소문자를 구분하기 때문에 monday는 equal연산에서 false');
+                break; // break가 없으면 다음 case로 연산을 진행함
+            case 'Monday' :
+                console.log('대소문자를 구분하기 때문에 monday는 equal연산에서 true');
+                break; // 즉 break를 만날때까지 코드가 실행된다는 의미
+            default: // if else if else절의 else에 해당하는 절
+                break; // 마찬가지로 break필수!
+        }
+    </script>
+
+    <h1>여러분은 HTML, CSS, Javascript 과목에대한 테스트를 치뤘다고 가정합시다</h1>
+    <ul>
+        <li>각 과목의 점수를 랜덤으로 60~100점까지 생성하여 할당한 후 과목의 총점과 평균을 출력하시오</li>
+        <li>평균이 90점 이상이면 A, 80점 이상이면 B, 70점 이상이면 C, 60점 이상이면 D</li>
+        <li>단 평균에 따른 학점산출은 switch문을 사용하여 작성할것</li>
+    </ul>
+    <span id="result_info"></span>
+    <script>
+        let html_score = 0, css_score = 0, javascript_score = 0, average_score = 0, grade = '';
+        html_score = Math.floor(Math.random() * 41) + 60;
+        css_score = Math.floor(Math.random() * 41) + 60;
+        javascript_score = Math.floor(Math.random() * 41) + 60;
+        average_score = (html_score + css_score + javascript_score) / 3;
+        switch(parseInt(average_score/10)) {
+            case 10:
+            case 9:
+                grade = 'A';
+                break;
+            case 8:
+                grade = 'B';
+                break;
+            case 7:
+                grade = 'C';
+                break;
+            default:
+                grade = 'D';
+                break;
+        }
+        document.getElementById('result_info').innerText = `html_score : ${html_score}, css_score : ${css_score}, javascript_score : ${javascript_score}, average_score : ${average_score}, grade : ${grade}`;
+    </script>
+</body>
+</html>

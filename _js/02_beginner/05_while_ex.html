@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 연습</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>a의 b제곱을 구하기 : Math.pow(a, b)</h1>
+    <form action="" method="">
+        a : <input type="number" id="param_a"><br>
+        b : <input type="number" id="param_b"><br>
+        <button type="button" id="calc_button">제곱연산하기</button>
+    </form>
+    <h1 id="result"></h1>
+
+    <script>
+        function calc_pow() {
+            let a = parseInt(document.getElementById('param_a').value);
+            let b = parseInt(document.getElementById('param_b').value);
+            let result = 1, count = 0;
+            while((count < b) && !(b == 1)) {
+                result = result * a;
+                count++;
+            }
+            document.getElementById('result').innerText = `${a}의 ${b}제곱은 ${result}입니다`;
+        }
+
+        calc_button.addEventListener('click', calc_pow);
+    </script>
+</body>
+</html>
