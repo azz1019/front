@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date객체</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>날짜 및 시간 타입은 화면상으로는 문자처럼 보이지만 실제 날짜와 시간체계를 갖고있는 데이터 타입이다</h1>
+    <ul>
+        <li>const now = new Date(); => 지금 이순간의 날짜와 시간값</li>
+        <li>const today = new Date("2022-04-14"); => 오늘을 문자값으로 날짜타입 만들기</li>
+        <li>const todayNow = new Date("2022-04-14T20:14:21Z"); => 오늘의 지금을 문자값으로 날짜타입 만들기</li>
+        <li>위의 T : 시간, Z : UTC기준시간</li>
+        <li>Local시간으로 조정하고 싶으면 Z대신 +HH:MM, -HH:MM추가</li>
+        <li>원리 : Date()객체를 인스턴스화 하면 헌재 순간의 날짜와 시간을 컴퓨터의 값에서 메모리로 호출하여 저장</li>
+        <li>출력이 실생활에서 사용하는 형식이 아니므로 변환이 필수</li>
+        <li>Date.now() : 오래전부터 사용하는 오늘의 정보값을 리턴, ES5부터 사용</li>
+        <li>날짜와 시간은 정보의 처리에관한 기록정보에 해당하므로 사용방법을 숙지하는 것을 추천</li>
+    </ul>
+
+    <script>
+        console.log(new Date());
+        console.log(new Date("2022-04-14"));
+        console.log(new Date("2022-04-14T20:19:36Z"));
+        console.log(new Date("2022-04-14T20:19:36+01:30"));
+    </script>
+</body>
+</html>

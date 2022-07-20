@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열순환</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>배열의 순환할수있는 구조를 이용하여 특정기능을 할수있는 메서드가 제공됨</h1>
+    <ul>
+        <li>array.forEach(callback function) : 일반반복문과 유사한형태</li>
+        <li>array.map(callback function) : forEach를 수행하면서 연산결과를 리턴하여 새로운배열을 만들어줌</li>
+        <li>array.filter(callback function) : map처럼 수행하면서 연산결과를 리턴하는데 비교연산의 결과에서 true에 해당하는값만 필터링해서 리턴함</li>
+    </ul>
+    <script>
+        const num_arr = [12, 3, 46, 75, 23, 17, 's', 'p', 'g'];
+        const str_arr = ['a', 'd', 'f', 's', 'p', 'g'];
+
+        num_arr.forEach(function(elem_value, index, self) {
+            console.log(index, elem_value, self[index]);
+        });
+
+        console.log('el, i, arr');
+        str_arr.forEach(function(elem_value, index, self) {
+            console.log(index, elem_value, self[index]);
+        });
+
+        console.log('el, i');
+        str_arr.forEach(function(elem_value, index) {
+            console.log(index, elem_value);
+        });
+
+        console.log('el');
+        str_arr.forEach(function(elem_value) { // 이렇게 메서드명이 같아도 파라미터의 형태를 달리하여 중복으로 사용할수있게 만드는 기법을 메서드오버로딩(method overloading)이라한다
+            console.log(elem_value);
+        });
+
+        console.log('invoke callback function');
+        function print_number(el, i, arr) {
+            console.log(i, el);
+        }
+        num_arr.forEach(print_number);
+
+        console.log('map invoke callback function');
+        function print_number_map(el, i, arr) {
+            return `${i} : ${el}`;
+        }
+        const new_str_arr = str_arr.map(print_number_map);
+        console.log(new_str_arr);
+
+        const new_str_arr2 = str_arr.map(function(el, i) {
+            return `${i} : ${el}`;
+        });
+        console.log(new_str_arr2);
+
+        console.log('filter invoke callback function');
+        const new_num_array = num_arr.filter(function(el, i, arr) {
+            return !isNaN(el);
+        });
+        console.log(new_num_array);
+    </script>
+</body>
+</html>

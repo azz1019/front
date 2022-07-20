@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Regular Expression : 정규표현식, 줄여서 정규식이라고 칭함, RegEx라는 단어로 많이표현됨</h1>
+    <ul>
+        <li>특정 데이터의 탐색, 확인, 존재여부등을 쉽게 수행하기위해 만든규칙</li>
+        <li>정규식이 작동되는 전용메서드에 규칙적인 부호를 사용</li>
+        <li>일반적인 웹분야에서는 사용률이 낮지만 데이터 분석과 관련된 분야는 마스터를 해야하는 기술</li>
+        <li>알아두면 복잡한 연산을 쉽게할수 있어서 시간날때 학습하길 권장함</li>
+        <li>프로그래밍 언어별로 조금씩 차이가있지만 거의 비슷하므로 한번 학습해놓으면 유용하게 사용할수있음</li>
+    </ul>
+
+    <h2>Expressions</h2>
+    <ol>
+        <li>str_data.match(/찾는문자/Modifiers) : 찾는문자와 일치하는 값을탐색후 배열리턴</li>
+        <li>str_data.match(/[찾는문자]/Modifiers) : []안에 찾고자하는 알파벳 혹은 숫자를 넣을수있다, 알파벳이나 단일수로 탐색</li>
+        <li>[0-9]는 0부터 9까지 해당하는 숫자 : -(하이픈)은 ?부터 ?까지 범위를 지정할때 사용하는 기호, 즉 [0-9]는 모든숫자를 의미함, 문자도 사용가능</li>
+        <li>[a-zA-Z0-9] : 영문자와 숫자만 가능</li>
+        <li>str_data.match(/(str1|str2)/Modifiers) : str1이나 str2에 정확하게 부합하는 데이터탐색</li>
+    </ol>
+    <script>
+        let test_text = 'This is JavaScript Regular Expressions';
+        console.log(test_text.match(/[cr]/g)); // 리턴은배열
+        console.log(test_text.match(/JavaScript/g));
+        console.log(test_text.match(/(is|Regular)/g));
+
+        let files = ['aa.jpg', 'mine.gif', 'document.doc', 'sc.js', 'bb.jpg'];
+        for(const filename of files) {
+            if(filename.match(/(jpg|gif|jepg)/i)) {
+                console.log(filename);
+            }
+        }
+    </script>
+
+    <h2 id="h2_mc">MetaCharacter</h2>
+    <ol>
+        <li>브라켓을 사용하는 표현식을 단순하게 특정 문자로 대체한개념</li>
+        <li>\d : 숫자만, \w : 문자만, etc...</li>
+        <li>자주사용되는 메타캐릭터들은 기억해주면 좋다! 매우 유용!</li>
+    </ol>
+    <script>
+        const h2_mc = document.getElementById('h2_mc').innerText;
+        console.log(h2_mc.match(/a.a/i));
+    </script>
+
+    <h2>Quantifier : 수량결정자, 수량제한자, 수치표현차</h2>
+    <ul>
+        <li>n+ : n을 포함하고 n뒤로 최소 1개 이상의문자</li>
+        <li>n* : n을 포함하고 n뒤로 0개 이상의문자</li>
+        <li>n? : n을 포함하고 n뒤로 1개의 문자</li>
+        <li>\d{3} : 3자리 digit character</li>
+        <li>\d{3, 4} : 3 or 4자리 digit character</li>
+        <li>\d{3,} : 3자리이상 digit character</li>
+        <li>^word : word로 시작하는단어, []안에서 사용하면 not의 의미가됨</li>
+        <li>word$ : word로 끝나는단어</li>
+        <li>word(?= str) : word뒤에 1개이상 str이 오는 word를 리턴</li>
+        <li>word(?! str) : word뒤에 1개이상 str이 오지않는 word를 리턴</li>
+    </ul>
+
+    <h2 id="h2_regExp">
+        RegExp Object Methods
+    </h2>
+    <ol>
+        <li>pattern.test('str_value') : 해당패턴이 맞는지여부, 리턴은 boolean</li>
+        <li>pattern.exec('str_value') : 해당패턴을 값에 대입하여 실행, 리턴은 객체(match메서드와 같음), 객체의 프로퍼티에 접근하면 각 결과값을 알수있음</li>
+    </ol>
+    <script>
+        const data_obj = document.getElementById('h2_regExp').innerHTML;
+        const return_obj = /Met/i.exec(data_obj);
+        console.log(return_obj);
+        console.log(return_obj.pop());
+        console.log(return_obj.index);
+        console.log(typeof return_obj.input, return_obj.input);
+        // return_obj_input의 값에 있는 양쪽 공백 및 escape 문자를 제거하여 문자 데이터로 활용할 수 있는 값으로 만들어 보세요
+        let return_obj_input = return_obj.input;
+        console.log(return_obj_input.replace(/^\s+/, '').replace(/\s+$/, ''));
+        let test = return_obj_input.trim();
+        console.log(test);
+    </script>
+
+    <h2>JavaScript Regular Expressions</h2>
+    <p>
+      Do a multiline search for "is" at the beginning of each line in a string:
+    </p>
+    <p id="demo1"></p>
+    <p id="demo"></p>
+    <script>
+      let text = "\nIs th\nis it?"; // \n은 엔터(뉴라인)을 만들어내는 escape문자
+      document.getElementById("demo1").innerText = text;
+      let result = text.match(/^is/m);
+      document.getElementById("demo").innerHTML = "Result is: " + result;
+    </script>
+</body>
+</html>

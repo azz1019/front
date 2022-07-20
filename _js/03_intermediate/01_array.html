@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트배열 : 유동배열</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>자바스크립트의 배열은 유동배열 : 크기와 데이터가 변경이 가능하다</h1>
+    <ul>
+        <li>const my_favors = ['a', 'b', 'c', 1, 2, 3];</li>
+        <li>원래데이터타입이 같아야하지만 자바스크립트는 허용하고있다</li>
+        <li>my_favors = []; 초기값이 없는 빈 배열을 만든후 데이터를 추가하여 크기변경이 가능하다</li>
+        <li>각 데이터들은 콤마(,)로 분리되고 분리된자리는 index로 관리되며 01부터 시작</li>
+        <li>크기는 length(길이)라는 속성을 사용하여 측정하고 크기가 변경될때마다 자동으로 산정된다</li>
+        <li>인덱스번호 체계에서 순서의 뛰어넘음등의 변칙적인 사용은모두 undefined로 초기화</li>
+        <li>객체와달리 index로 관리되고 다양한데이터를 저장할수있기 때문에 자바스크립트 프로그래밍에서 활용도가 매우 높으며 이해도가 낮으면 추후 데이터통신 및 데이터변환에서 프로그래밍이 힘들수있다</li>
+    </ul>
+    <script>
+        // const my_favors = new Array('a', 1, 2, 3); 가급적이면 사용하지말것!
+        const my_favors = ['a', 'b', 'c', 1, 2, 3];
+        console.log(my_favors.length);
+        console.log(my_favors[5]);
+        console.log(my_favors[my_favors.length - 1]);
+        // 배열의원소추가 : 배열의길이를 모른다고가정
+        my_favors[my_favors.length] = 'add';
+        console.log(my_favors);
+        my_favors[my_favors.length + 3] = 'new';
+        console.log(my_favors[7]);
+        console.log(my_favors[8]);
+        console.log(my_favors[9]);
+        console.log(my_favors);
+        my_favors[8] = 'filled';
+        console.log(my_favors);
+        // my_favors = []; // const로 배열을 선언했을때 배열의값은 바꿀수있어도 배열자체를 변경할수는 없다!! 배열의 초기화가 필요한 로직은 let으로 선언한다!
+        console.log(my_favors);
+        // 원래배열은 같은데이터타입만 배열의원소로 사용하는것이 원칙이다
+        // 현재 다른타입의 데이터들과 혼합된형태로 만들어서 사용하는 것도 많다 => 유사배열 : associative array, 배열관련 메서드를 사용할수없음
+        let origin_array_type = [10, 20, 30, 40, 50];
+        let assoc_array_type = [1, true, 'kim', undefined, {k : 'value'}, ['k', 'b']];
+        let a = 'k';
+        console.log(assoc_array_type[assoc_array_type.length - 2].k);
+        console.log(assoc_array_type[assoc_array_type.length - 1][0]);
+        for(let loop = 0; loop < origin_array_type.length; loop++) {
+            console.log(origin_array_type[loop]);
+        }
+        for(let loop = 0; loop < assoc_array_type.length; loop++) {
+            console.log(assoc_array_type[loop]);
+        }
+        for(let elem of assoc_array_type) { // object in, array of
+            console.log(typeof elem, elem);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date객체 관련 get, set메서드</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>데이터를 set하는 메서드를 보통 setters, get하는 메서드를 getters라고 부른다</h1>
+    <ul>
+        <li>Date객체에는 날짜와 시간관련 메서드들이 동일한 이름으로 구조화 되어있음</li>
+        <li><img src="./images/date_get.png" width="400" height="300"></li>
+        <li><img src="./images/date_set.png" width="400" height="300"></li>
+    </ul>
+    <h2>
+        1. 여러분의 생년월일로부터 오늘까지 몇일이 지났는지 출력해보세요<br>
+        (optional) : 어떤 목표가 있다고 가정한후 기한을 정한후 몇일 남았는지 출력해보세요
+    </h2>
+    <h2>Date()객체가 사용하기 불편한 부분이있어 이를 보완하기위해 자바스크립트 라이브러리를 많이 활용하는편</h2>
+    <ul>
+        <li>moment.js : 순수 자바스크립트를 기반으로 날짜 데이터를 다루는 코드 라이브러리</li>
+        <li>fullcalendar : 캘린더 ui까지 제공하는 프론트용 라이브러리, 커스터마이징이 어려운 편이어서 별도의 라이브러리 공부가 필요함</li>
+    </ul>
+
+    <script>
+        let today = new Date();
+        let birthday = new Date("1995-10-19");
+        let goal = new Date("2022-10-19");
+        console.log(today);
+        console.log(birthday);
+        console.log(goal);
+        console.log((today - birthday) / (1000 * 60 * 60 * 24));
+        console.log((goal - today) / (1000 * 60 * 60 * 24));
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 객체의조합</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>데이터를 다룰때 배열과 객체를 혼용하여 다루는 경우가많아 이해를 확실히 해두는게좋음</h1>
+    <ul>
+        <li>배열안에 객체를 저장 그리고 그 객체안에 다시 배열이 저장되어있는 형태</li>
+        <li>이런한 조합의 형태에서 데이터를 다룰러면 for of문과 for in문을 적절히 사용할줄 알아야함</li>
+    </ul>
+    <script>
+        const member_object = {
+            name : 'park',
+            age : 35,
+            married : true,
+            fovors : ['Baseball', 'Game', 'Movie', 'etc...'],
+        }
+        const people = [];
+
+        for(let index = 0; index < 5; index++) {
+            people.push(member_object);
+        }
+        // people[1].name = 'kim';
+        // people[2].age = 30;
+        // people[3].married = false;
+        // people[4].fovors[0] = 'Soccer';
+        // console.log(people);
+        for(const member of people) { // 배열의 인덱스를 전체순회
+            for(const key in member) { // 객체의키의 이름(문자) 전체순회
+                if(key != 'favors') { // 객체의키이름이 favors가 아니면 일반데이터
+                    console.log(member[key]);
+                } else { // 객체의키이름이 favors면 배열데이터
+                    for(const favor of member[key]) { // 배열데이터를 다시 for of문으로 순회
+                        console.log(favor);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

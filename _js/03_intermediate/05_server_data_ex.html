@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 구조화</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>많은양의 데이터가 실시간으로 전달되어야할때 가장 효율적인 방식은 구조화된 텍스트</h1>
+    <ul>
+        <li>구조화된 텍스트를 만들기위해 JSON데이터를 많이 활용하고 있음</li>
+        <li>자바스크립트의 객체형태를 갖고있기때문에 구조파악이 쉽고 제작도 어렵지않다</li>
+        <li>특히 웹분야에서는 자바스크립트가 모든 프론트영역에 호환된다는점을 활용하여 데이터수집 및 출력용으로 거의모든 플랫폼서비스에서 사용되고있음</li>
+        <li>예를들어 파이썬으로 수집한데이터를 자바기반 웹서비스에서 출력하고 싶다면?</li>
+        <li>파이썬으로 JSON데이터를 만들어 파일로 자바기반 서버에 전송해주면 자바기반 서버는 웹으로 그 JSON데이터를 뷰(프론트)영역에 출력시키면 된다</li>
+    </ul>
+    <script>
+        // https://finance.naver.com의 TOP종목 데이터를 구조화해보기
+        // const top = {
+        //     "거래상위" : [
+        //         {
+        //             name : 'KODEX 200선물인버스2X',
+        //             price : 2515,
+        //             updown : -100,
+        //             ratio : -3.82,
+        //         }, 
+        //         {
+        //             name : '메이슨캐피탈',
+        //             price_info : [
+        //                 786, 75, 10.55, 711, 900, 133956316, 780, 772, 111787
+        //             ]
+        //         }, {}, {}, {},
+        //     ],
+        //     "상승" : [],
+        //     "하락" : [],
+        //     "시가총액 상위" : [],
+        // }
+
+        const data = {
+            "환전고시환율" : [
+                {
+                    name : '미국USD',
+                    price_info : [1228.00, -4.00]
+                },
+                {
+                    name : '일본JPY (100엔)',
+                    price_info : [974.10, -7.07]
+                }
+            ],
+            "국제시장환율" : [
+                {
+                    name : '달러/일본 엔(04.12)',
+                    price_info : [125.1600, -0.36]
+                },
+                {
+                    name : '유로/달러(04.12)',
+                    price_info : [1.0874, -0.0]
+                }
+            ]
+        }
+
+        for(const key in data) {
+            console.log(key);
+            for(const object of data[key]) {
+                console.log(object);
+            }
+        }
+    </script>
+</body>
+</html>
