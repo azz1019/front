@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class constructor</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>클래스, 객체, 생성자</h1>
+    <script>
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+        }
+
+        let mycar1 = new Car('포르쉐', 2022);
+        let mycar2 = new Car('그랜저', 2021);
+        let mycar3 = new Car('XG', 2020);
+        console.log(mycar1.name, mycar1.year);
+        console.log(mycar2.name, mycar2.year);
+        console.log(mycar3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>JSON : JavaScript Object Notation : 자바스크립트 객체 표기법</h1>
+    <ul>
+        <li>데이터의 요청 및 응답처리에 필요한 데이터의 표준형식을 제공하는 타입</li>
+        <li>백엔드 언의 종류에 관계없이 데이터 송수신을 단일 형식으로 통일함</li>
+        <li>데이터의 전송은 모두 string타입으로 이루어지기 때문에 송수신 모듈에서 타입의 변환이 필요함</li>
+        <li>데이터송신측 : json to string, JSON.stringify(js object)</li>
+        <li>데이터수신측 : string to json, JSON.parse(string data)</li>
+    </ul>
+
+    <script>
+        const string_data = '{"id": "0001","type": "donut","name": "Cake",'
+      	+ '"image":	{"url": "images/0001.jpg","width": 200,	"height": 200},'
+      	+ '"thumbnail":	{"url": "images/thumbnails/0001.jpg","width": 32,"height": 32}}';
+
+        let parsed_data = JSON.parse(string_data);
+        console.log(parsed_data);
+        console.log('==============================================================')
+        for(const object in parsed_data) {
+            if((object == 'image') || (object == 'thumbnail')) {
+                for(const sub_object in parsed_data[object]) {
+                    console.log(`${object}, ${sub_object}, ${parsed_data[object][sub_object]}`);
+                }
+            } else {
+                console.log(`${object}, ${parsed_data[object]}`);
+            }
+        }
+        console.log('==============================================================')
+
+        const my_info_data = {
+            "name" : 'park',
+            "age" : '44',
+            "blood" : 'O',
+            "major" : 'financial',
+            "addr" : 'seoul'
+        }
+        for(const object in my_info_data) {
+            console.log(`\"${object}\", \"${my_info_data[object]}\"`);
+        }
+        console.log('==============================================================')
+        let string_data1 = JSON.stringify(my_info_data);
+        console.log(string_data1, typeof string_data1);
+    </script>
+</body>
+</html>

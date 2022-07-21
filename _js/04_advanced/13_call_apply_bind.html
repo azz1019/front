@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call, apply, bind function</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>call, apply, bind함수는 실행대상을 호출하여 수행을 위임하는 방식을 사용한다</h1>
+    <ul>
+        <li>https://www.w3schools.com/js/js_function_call.asp</li>
+        <li>target_object.target_method.call(data_object, parameter, parameter...) : 대상객체의 내부리소스(메서드)에 데이터객체와 파라미터를 던져 수행하게한다</li>
+        <li>https://www.w3schools.com/js/js_function_apply.asp</li>
+        <li>target_object.target_method.apply(data_object, [parameter, parameter...]) : 대상객체의 내부리소스(메서드)에 데이터객체와 배열을 던져 수행하게한다</li>
+        <li>https://www.w3schools.com/js/js_function_bind.asp</li>
+        <li>target_object.target_method.bind(data_object) : 대상객체의 내부리소스(메서드)를 가져와 데이터객체에 숨겨놓고 가져온 리소스를 변수에 리턴한다. 추후 변수를 함수호출(variable_name();) 식으로 실행하면 데이터객체의 메서드처럼 실행이된다</li>
+        <li>bind()함수는 로드시점과 실행시점이 다르기때문에 setTimeout(callback, duration)과 같은 실행시차를 갖는 함수에서 실행할때 this키워드를 사용하더라도 데이터객체를 그대로 참조할수있다</li>
+    </ul>
+</body>
+</html>

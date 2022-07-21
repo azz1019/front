@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스연습</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>자바스크립트 클래스</h1>
+    <ul>
+        <li>추상화 작업의 대표적인 코드 결과물</li>
+        <li>객체를 생성하기전 설계도를 만든다는 개념으로 접근</li>
+        <li>개념적인 분류를통해 필요한속성(상태:변수)과 기능(메서드)등을 정의함</li>
+        <li>클래스를 통해 생성된 객체는 인스턴스라고 하며 데이터관리의 기준체 역할을 함</li>
+    </ul>
+
+    <script>
+        let my_account = {
+            name : 'park',
+            balance : 0,
+            deposit : function (amount) {
+                this.balance = amount;
+            },
+            withdraw : function (amount) {
+                this.balance = amount;
+            },
+            transfer : function (amount, other_account) {
+                this.balance -= amount;
+                other_account.balance += amount;
+            }
+        }
+
+        let your_account = {
+            name : 'lee',
+            balance : 100,
+            deposit : function (amount) {
+                this.balance = amount;
+            },
+            withdraw : function (amount) {
+                this.balance = amount;
+            },
+            transfer : function (amount, other_account) {
+                this.balance -= amount;
+                other_account.balance += amount;
+            }
+        }
+
+        my_account.deposit(100);
+        my_account.transfer(100, your_account);
+        //console.log(my_account.name, my_account.balance);
+        //console.log(your_account.name, your_account.balance);
+
+        class bank_account {
+            constructor(name, amount) {
+                this.name = name;
+                this.balance = amount;
+            }
+            deposit(amount) {
+                this.balance += amount;
+            }
+            withdraw(amount) {
+                this.balance -= amount;
+            }
+            transfer(amount, account) {
+                this.balance -= amount;
+                account.balance += amount;
+            }
+        }
+        let my_bank_account = new bank_account('park', 10000);
+        let your_bank_account = new bank_account('choi', 20000);
+        my_bank_account.deposit(100000);
+        your_bank_account.withdraw(5000);
+        my_bank_account.transfer(5000, your_account);
+        console.log(my_bank_account);
+        console.log(your_bank_account);
+        console.log(your_account.name, your_account.balance);
+    </script>
+</body>
+</html>

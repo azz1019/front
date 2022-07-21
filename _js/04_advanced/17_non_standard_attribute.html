@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비표준 속성(Non-standard Attibute)</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>html태그의 속성이 제한적이므로 데이터관리 차원에서 개발자들에게 직접 속성을 만들수있는 방법이 제공됨</h1>
+    <ul>
+        <li>Markup언어들은 사용자(개발자)들에게 표준이아닌 사용자만의 문법을 사용할수있도록 설계되어있음</li>
+        <li>HTML에서도 사용할수있는데 과도하게 비표준을 사용하면 개발효율과 가독성이 낮아질수있음</li>
+        <li>적당한 규칙을 적용한 비표준을 사용할것을 권장함</li>
+        <li>태그속성의 이름을 data-로 시작하여 하이픈(-)뒤에 특정 의미를 갖는 이름을 사용할수있는데 이 규칙을 자바스크립트에서 인식할수있도록 설계되어있음</li>
+        <li>dataset property를 사용할때 대문자는 허용하지 않음, 대문자를 사용하더라도 소문자로 변환시킴</li>
+        <li class="list" id="" data-ino="li_last" data-itemcategory="laptop"></li>
+    </ul>
+
+    <script>
+        let li_last_tag = document.querySelectorAll('.list');
+        console.log(li_last_tag);
+        console.log(li_last_tag[0].dataset.ino);
+        console.log(li_last_tag[0].dataset.itemcategory);
+    </script>
+</body>
+</html>

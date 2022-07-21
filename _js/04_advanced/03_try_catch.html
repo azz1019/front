@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try~Catch</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>예상되는 에러를 try {code...}영역에 배치하고 만약 에러가 발생하면 catch(err){code...}영역에서 처리하는 예외처리 프로세스</h1>
+    <ul>
+        <li>try영역 : 에러발생이 예상되는 코드를 실행하는곳</li>
+        <li>catch(err)영역 : 에러발생시 예외처리 코드를 실행하는곳</li>
+        <li>try~catch로 예외처리를 하면 프로세스를 에러로인해 멈추지않고 지속시킬수 있다!</li>
+        <li>finally영역 : 예외처리 유무에 관계없이 무조건 코드를 실행하는 영역</li>
+        <li>throw : 예외를 고의적으로 발생시킬수있는 키워드, throw + 예외발생후 실행할코드</li>
+    </ul>
+    <script>
+        console.log('프로세스 시작');
+        try {
+            alerttt('경고창 실행');
+            console.log('경고창 실행 확인');
+        } catch (err) {
+            console.log('catch 영역...');
+            console.log(err.message);
+            try {
+                if(err.message.toString().length > 0) {
+                    throw 'throw error';
+                }
+            } catch(err2) {
+                console.log(err2.message);
+            }
+        } finally {
+            console.log('finally 영역... 무조건 실행되는 영역!');
+        }
+        console.log('프로세스 종료');
+    </script>
+</body>
+</html>

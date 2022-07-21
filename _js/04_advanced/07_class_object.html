@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스, 객체, 생성자함수</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>클래스, 리터럴객체, 생성자 함수를 통해 객체를 만들어보자</h1>
+    <ul>
+        <li>정의할 프로퍼티(멤버변수, name) : first_name, last_name, age, eye_color</li>
+    </ul>
+
+    <script>
+        class PersonClass {
+            constructor(first, last, age, eye) {
+                this.first_name = first;
+                this.last_name = last;
+                this.age = age;
+                this.eye_color = eye;
+            }
+            get person_info() {
+                return `${this.first_name}, ${this.last_name}, ${this.age}, ${this.eye_color}`;
+            }
+        }
+
+        const person_object = {
+            first_name : '',
+            last_name : '',
+            age : 0,
+            eye_color : '',
+            get get_person_info() {
+                return `${this.first_name}, ${this.last_name}, ${this.age}, ${this.eye_color}`;
+            },
+            set set_person_first_name(first) { // set은 매개변수 1개씩밖에 못넘김
+                this.first_name = first;
+            },
+            set set_person_last_name(last) {
+                this.last_name = last;
+            },
+            set set_person_age(age) {
+                this.age = age;
+            },
+            set set_person_eye_color(eye_color) {
+                this.first_eye_colorname = eye_color;
+            }
+        }
+
+        function person_object(first, last, age, eye) {
+            this.first_name = first;
+            this.last_name = last;
+            this.age = age;
+            this.eye_color = eye;
+            this.getPersonInfo = function() {
+                return `${this.firstName},${this.lastName},${this.age},${this.eyeColor}`;
+            }
+        }
+
+        const myInfo = new PersonObject('kitae', 'park', 44, 'black');
+    </script>
+</body>
+</html>

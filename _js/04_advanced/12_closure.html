@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로져</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>클로져(closure) : self-invoking을 활용하여 함수의 리턴값을 통해 데이터값을 관리할수있는 기술</h1>
+    <ul>
+        <li>변수에 self-invoking을 할당하고 내부의 리턴에 데이터값을 리턴하는 함수를 할당</li>
+        <li>self-invoking이 된함수(부모함수)는 메모리에 상주한 상태로 대기상태가 됨</li>
+        <li>부모함수의 실행상태를 대기시키고 실행을 닫는다(폐쇄한다)는 의미로 클로져라고 함</li>
+    </ul>
+
+    <script>
+        let num = 0;
+        function make_random(num) {
+            return Math.floor(Math.random() * num) + 1;
+        }
+        let my_num = make_random(100);
+        console.log(my_num);
+
+        let get_my_num = (function () {
+            const random_num = 10;
+            let result = Math.floor(Math.random() * random_num) + 1;
+            return function() {
+                return result;
+            }
+        })();
+    </script>
+</body>
+</html>

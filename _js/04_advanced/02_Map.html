@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Map : Key / Value형태의 데이터를 한개의 배열로 만들어거 다시 배열에 저장하는 방식</h1>
+    <ul>
+        <li>선언 및 초기화 : new Map(), new Map(["key", value], ["key", value], ...)</li>
+        <li>기본적으로 중첩 구조이기때문에 Key의 중복확인이 필수</li>
+        <li>Key를 식별자로 사용하는 방식이므로 get("KeyName"), set("KeyName", value)메서드를 제공</li>
+        <li>자바스크립트 객체를 배열화시킨 구조라고 생각하면 편함, 2차원 배열과 비슷한형식</li>
+        <li>기본적으로 Map은 타입제한(문자열추천)을 하는것이 원칙이다!, key의 타입이 달라지면 관리가 어려워지기 때문, 자바스크립트 객체도 key는 모두 문자열을 사용하는것과 같은 원리</li>
+    </ul>
+    <img src="./images/map.png" width="400" height="300">
+    <h3>Javascript Object VS Map</h3>
+    <img src="./images/object_map.png" width="400" height="200">
+
+    <script>
+        const my_map = new Map();
+        my_map.set("html", 100);
+        my_map.set("css", 100);
+        my_map.set("js", 100);
+        console.log(my_map);
+        console.log(my_map.get("js")); // key를 지시하면 value를 준다!
+        my_map.delete("css");
+        console.log(my_map.has("css"));
+        my_map.forEach(function(value, key, self) {
+            console.log(key, value);
+        });
+        console.log(my_map.entries());
+        // my_map.entries().forEach(function(value, key, self) {
+        //     console.log(key, value);
+        // }); 작동안됨!
+        for(const iter of my_map.entries()) {
+            for(const key in iter) {
+               console.log(key, iter[key]); 
+            }
+        }
+        console.log(my_map.keys());
+        console.log(my_map.values());
+    </script>
+</body>
+</html>
