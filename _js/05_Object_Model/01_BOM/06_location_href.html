@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location.href</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>location객체는 브라우저의 주소표시줄 입력에 관련된문제</h1>
+    <ul>
+        <li>location.href = 'url' : 'url'로 이동시킨다</li>
+        <li>location.replace('url') : 'url'로 이동시킨다. 하지만 이전페이지를 history객체에 저장하지 않는다</li>
+    </ul>
+    <button type="button" id="move_by_href">href를 사용한이동</button>
+    <button type="button" id="move_by_replace">replace()를 사용한이동</button>
+    <button type="button" id="move_by_assign">assign()을 사용한이동</button>
+    <button type="button" id="move_by_reload">reload()를 사용한 페이지재호출</button>
+    <button type="button" id="btn">Location객체 살펴보기</button>
+    <ol id="print"></ol>
+
+    <script>
+        alert('페이지이동');
+        document.getElementById('move_by_href').onclick = () => {
+            location.href = 'https://www.google.com';
+        }
+        document.getElementById('move_by_replace').onclick = () => {
+            location.replace('https://www.naver.com');
+        }
+        document.getElementById('move_by_assign').onclick = () => {
+            location.assign('https://www.daum.net');
+        }
+        document.getElementById('move_by_reload').onclick = () => {
+            location.reload();
+        }
+        document.getElementById('btn').onclick = () => {
+            let print_element = document.getElementById('print');
+            for(const key in window.location) {
+                print_element.innerHTML += `<li>${key} : ${window.location[key]}</li>`;
+            }
+        };
+    </script>
+    <h3><a href="./04_setTimeout.html">04_setTimeout.html</a></h3>
+</body>
+</html>

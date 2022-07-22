@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Event</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>때때로 키보드에서 입력된값을 알아야할 필요가있다</h1>
+    <ul>
+        <li>키를 누르는동안 : keydown</li>
+        <li>키를 누르는순간 : keypress</li>
+        <li>키보드의 키가 다시 올라온순간 : keyup</li>
+        <li>키 값 : event.key, event.code</li>
+    </ul>
+    <h1>
+        e.type : <span id="type1"></span>,
+        e.key : <span id="key1"></span>,
+        e.code : <span id="code1"></span>
+    </h1>
+    <h1>
+        e.type : <span id="type2"></span>,
+        e.key : <span id="key2"></span>,
+        e.code : <span id="code2"></span>
+    </h1>
+    <h1>
+        e.type : <span id="type3"></span>,
+        e.key : <span id="key3"></span>,
+        e.code : <span id="code3"></span>
+    </h1>
+    입력 : <input type="text" id="ip">
+
+    <script>
+        const h1_type1 = document.getElementById('type1');
+        const h1_key1 = document.getElementById('key1');
+        const h1_code1 = document.getElementById('code1');
+        const h1_type2 = document.getElementById('type2');
+        const h1_key2 = document.getElementById('key2');
+        const h1_code2 = document.getElementById('code2');
+        const h1_type3 = document.getElementById('type3');
+        const h1_key3 = document.getElementById('key3');
+        const h1_code3 = document.getElementById('code3');
+
+        document.getElementById('ip').addEventListener('keydown', (e) => {
+            h1_type1.textContent = e.type;
+            h1_key1.textContent = e.key;
+            h1_code1.textContent = e.code;
+        });
+        document.getElementById('ip').addEventListener('keypress', (e) => {
+            h1_type2.textContent = e.type;
+            h1_key2.textContent = e.key;
+            h1_code2.textContent = e.code;
+        });
+        document.getElementById('ip').addEventListener('keyup', (e) => {
+            h1_type3.textContent = e.type;
+            h1_key3.textContent = e.key;
+            h1_code3.textContent = e.code;
+        });
+    </script>
+</body>
+</html>

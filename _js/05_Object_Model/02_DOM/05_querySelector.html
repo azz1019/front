@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>querySelector(), querySelectorAll() : HTML노드(관리객체)로 리턴하는 메서드</h1>
+    <ol id="ol">
+        <li class="links">document.querySelector('css selector') : 단일노드로 리턴, 엘리먼트와 비슷</li>
+        <li class="links">document.querySelectorAll('css selector') : 노드리스트로 리턴, HTMLCollection과 비슷</li>
+        <li>css selector를 사용하기 때문에 getElement계열 메서드보다 더 선호함</li>
+        <li>단, 리턴의 형태가 조금차이가 있기때문에 이 메서드만 사용하는것은 효율적이지 않다</li>
+    </ol>
+
+    <script>
+        const h1 = document.querySelector('h1');
+        const lis = document.querySelectorAll('.links');
+        const ol = document.querySelectorAll('#ol');
+        console.log(h1);
+        console.log(lis);
+        console.log(ol);
+        const ol_element = document.getElementsByTagName('ol');
+        console.log(ol_element);
+    </script>
+</body>
+</html>

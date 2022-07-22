@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Event</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>document영역에서 사용되어지는 이벤트는 모두 사전정의 되어있음</h1>
+    <h3>마우스, 키보드, 실행등 이벤트의 종류가 매우많기때문에 웹에서 자주 사용하는 이벤트를 우선적으로 학습하길권장</h3>
+    <ul>
+        <li>마우스 이벤트 : click(), focus(), blur(), input(), change(), mouseover(), mouseout(), select(), scroll(), load(), drag() => drop()과정, contextMenu(), event.which => mousedown()</li>
+        <li>키보드 이벤트 : event.key => keyDown(), event.keyCode / event.which => keyPress()</li>
+        <li>기타 이벤트관련 메서드 : preventDefault(), target, submit(), reset(), search()</li>
+        <li>메서드를 태그 속성이나 엘리먼트에 직접 부여하는 방식이외 addEventListener('event_name', callback function)메서드를 사용하여 구현하는것을 권장함</li>
+        <li>addEventListener를 권장하는 이유 : 같은 엘리먼트에 여러 이벤트를 중복해서 부여할수있고, 이벤트를 선택적으로 제거할수있다</li>
+        <li>이벤트발생 방식 addEventListener('event_name', callback, use_capture)
+            <ol>
+                <li>캡쳐링(true) : 대상 객체에 이벤트를 발생시키기위해 감싸고있는 외부 엘리먼트부터 접근하여 실행하는방식, 외부 => 내부접근</li>
+                <li>버블링(Default) : 내부에서 외부로 영향력 전달방식</li>
+            </ol>
+        </li>
+    </ul>
+    <button type="button" id="make_button">엘리먼트 만들기</button>
+    <div id="zone"></div>
+
+    <script>
+        // 전체문서에 리스너를 장착하고 엘리먼트를 선택하는방법
+        // 동적으로 생성된 엘리먼트에 이벤트를 부여할때 많이사용
+        document.getElementById('make_button').addEventListener('click', () => {
+            let new_button = '<button type="button" id="new_button">생성된버튼</button>';
+            document.getElementById('zone').innerHTML = new_button;
+        });
+
+        // document.getElementById('new_button').addEventListener('click', () => {
+        //     document.getElementById('zone').innerHTML += '<h3>생성된버튼을 클릭함!</h3>';
+        // });
+
+        document.addEventListener('click', (e)  => {
+            console.log(e.target.id);
+            if(e.target.id == 'new_button') {
+                document.getElementById('zone').innerHTML += '<h3>생성된버튼을 클릭함!</h3>';
+            }
+        });
+    </script>
+</body>
+</html>

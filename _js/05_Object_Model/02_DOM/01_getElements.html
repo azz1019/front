@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엘리먼츠 가져오기</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1 id="header">HTML Tag를 element로 가져오는 메서드</h1>
+    <ul>
+        <li class="list">document.getElementsById('id_name') : 리턴 단일 엘리먼츠</li>
+        <li class="list">document.getElementsByClassName('class_name') : 리턴 복수 엘리먼츠, HTMLCollection 형태로저장</li>
+        <li class="list">document.getElementsByTag('tag_name') : 리턴 단일 엘리먼츠, HTMLCollection 형태로저장</li>
+        <li>getElements로 가져오는 객체는 우선적으로 HTMLCollection의 index를 선택해야함을 기억해야한다!</li>
+    </ul>
+
+    <script>
+        const h1 = document.getElementById('header');
+        //const h1 = document.querySelectorAll('#header'); 객체확인용
+        const lis = document.getElementsByClassName('list');
+        const ul = document.getElementsByTagName('ul');
+        console.log(h1);
+        console.log(lis);
+        console.log(ul);
+        //console.log(h1.innerText.length);
+    </script>
+</body>
+</html>

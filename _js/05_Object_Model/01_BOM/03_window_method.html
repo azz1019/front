@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 메서드</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>윈도우 전역객체 소속의 메서드</h1>
+    <ul>
+        <li>open(), close()... : 윈도우 창관련 메서드들</li>
+        <li>prompt(), alert(), confirm() : 사용자 Interface메서드</li>
+        <li>setTimeout(), setInterval() : 실행시간 지정메서드</li>
+    </ul>
+    <h1 id="print_test_msg"></h1>
+    <button type="button" onclick="open_alert()">window.alert()</button>
+    <button type="button" onclick="open_prompt()">window.prompt()</button>
+    <button type="button" onclick="open_confirm()">window.confirm()</button>
+
+    <script>
+        function open_alert() {
+            alert('지금도 가끔씩 쓰는 alert("string msg")메서드');
+        }
+        function open_prompt() {
+            let info = prompt('값을 입력해주세요', '초기값');
+            if(info != null) {
+                document.getElementById('print_test_msg').innerText = info + '를 입력하셨습니다';
+            }
+        }
+        function open_confirm() {
+            let text;
+            let choice = confirm('선택하세요~');
+            if(choice == true) {
+                text = '확인을 선택하셨군요';
+            } else {
+                text = '취소를 선택하셨군요';
+            }
+            document.getElementById('print_test_msg').innerText = text;
+        }
+    </script>
+</body>
+</html>

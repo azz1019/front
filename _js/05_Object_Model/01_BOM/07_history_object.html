@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history객체</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>브라우저가 저장하고 있는 방문페이지의 기록을 관리하는객체</h1>
+    <ul>
+        <li>브라우저의 설정에서 방문한 페이지의 기록을 지우면 모두 지워진다</li>
+        <li>브라우저의 저장소를 기반으로 하기때문에 보안이슈로 작업을 해놓을경우 작동하지 않을수있다</li>
+        <li>history.back(), history.forward(), history.go()메서드를 이용하여 탐색</li>
+    </ul>
+    <button type="button" id="back">back()</button>
+    <button type="button" id="forward">forward()</button>
+    <input type="text" id="n"><button type="button" id="go">go()</button>
+    <button type="button" id="btn">history객체 살펴보기</button>
+    <ol id="print"></ol>
+
+    <script>
+        document.getElementById('back').onclick = () => {
+            history.back();
+        };
+        document.getElementById('forward').onclick = () => {
+            history.forward();
+        };
+        document.getElementById('go').onclick = () => {
+            history.go(parseInt(document.getElementById('n').value));
+        };
+        document.getElementById('btn').onclick = () => {
+            let print_element = document.getElementById('print');
+            for(const key in window.history) {
+                print_element.innerHTML += `<li>${key} : ${window.history[key]}</li>`;
+            }
+        };
+    </script>
+    <h3><a href="./05_setInterval.html">05_setInterval.html</a></h3>
+</body>
+</html>

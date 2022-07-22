@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element의 CSS</title>
+    <style>
+        .yellow {
+            background-color: yellow;
+        }
+        .black {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>CSS적용은 element.style.property형식으로 접근 및 변경을 하면된다</h1>
+    <ul>
+        <li>property는 자바스크립트의 코드이기 때문에 띄어쓰기나 -(하이픈)이 적용안됨</li>
+        <li>그러므로 css의 프로퍼티의 -(하이픈)을 제거한후 바로뒤에오는 문자를 대문자로 변경하면됨, 즉 camelCase형식으로 만들어낸다고 생각하면됨</li>
+    </ul>
+    <h1 id="h1">색상명을 입력하고 색상변경 버튼을 클릭하면 현재 h1의 배경색이 입력한 배경색으로 변경되게 해보세요. 단 style속성을 사용하지말것</h1>
+    <input type="text" id="color_value">
+    <button type="button" id="change_button">색상변경</button><br>
+
+    <img src="./test.png" alt="" id="img">
+    <input type="text" id="attr_name">
+    <input type="text" id="attr_value">
+    <button type="button" id="btn">속성변경 테스트</button>
+
+    <script>
+        // css의 변경대상과 분량이 적을때 사용
+        const lis = document.getElementsByTagName('li');
+        for(const li of lis) {
+            li.style.backgroundColor = 'black';
+            li.style.color = 'yellow';
+            //li.style.textDecoration = 'underline';
+            li.style.setProperty('text-decoration', 'underline');
+        }
+
+        // css의 변경대상과 분량이 많을때 사용
+        document.getElementById('change_button').onclick = () => {
+            const h1 = document.getElementById('h1');
+            let color_value = document.getElementById('color_value').value;
+            h1.className = color_value;
+        };
+
+        document.getElementById('btn').onclick = () => {
+            const img = document.getElementById('img');
+            let attr_name = document.getElementById('attr_name').value;
+            let attr_value = document.getElementById('attr_value').value;
+            //img[attr_name] = attr_value;
+            img.setAttribute(attr_name, attr_value);
+        };
+    </script>
+</body>
+</html>

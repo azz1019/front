@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 팝업창</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>과거에많이 사용되었으나 디자인과 팝업창의 데이터와 유기적인 컨트롤이 어려워 지금은 지양되고 있다</h1>
+    <ul>
+        <li>window.open('url', 'window name', 'options(size, scroll...)')</li>
+    </ul>
+    <button type="button" onclick="open_window();">열기</button>
+    <button type="button" onclick="close_windoe();">닫기</button>
+    <button type="button" onclick="check_window();">체크하기</button>
+    <span id="msg"></span>
+
+    <script>
+        let my_window;
+        function open_window() {
+            my_window = window.open("", "my_window", "width=400, height=500");
+        }
+        function close_windoe() {
+            if(my_window) {
+                my_window.close();
+            }
+        }
+        function check_window() {
+            if(!my_window) {
+                document.getElementById('msg').innerText = 'my_window가 한번도 열리지 않았습니다';
+            } else {
+                if(my_window.closed) {
+                    document.getElementById('msg').innerText = 'my_window가 닫혔습니다';
+                } else {
+                    document.getElementById('msg').innerText = 'my_window가 닫히지 않았습니다';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

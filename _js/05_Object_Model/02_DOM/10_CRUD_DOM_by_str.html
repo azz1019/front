@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열로 문서 CRUD해보기</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn2">Li Tag 순차적 추가하기</button>
+    <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn4">Li Tag 순차적 추가하기</button>
+    <ul id="ul"></ul>
+    <ol id="ol"></ol>
+    <ul id="ul2"></ul>
+    <ol id="ol2"></ol>
+
+    <script>
+        document.getElementById('btn1').addEventListener('click', () => {
+            let lis = '<li><a href="#html">HTML</a></li>';
+            lis += '<li><a href="#css">CSS</a></li>';
+            lis += '<li><a href="#javascript">JavaScript</a></li>';
+            lis += '<li><a href="#sql">SQL</a></li>';
+            document.getElementById('ul').innerHTML = lis;
+        });
+
+        const title_array = ['HTML', 'CSS', 'JavaScript', 'SQL'];
+        let index = 0;
+        document.getElementById('btn2').addEventListener('click', () => {
+            if(index < title_array.length) {
+                let lis = `<li><a href="#${title_array[index].toLocaleLowerCase()}">${title_array[index]}</a></li>`;
+                document.getElementById('ol').innerHTML += lis;
+                index++;
+            }
+        });
+
+        document.getElementById('btn3').addEventListener('click', () => {
+            let ul = document.getElementById('ul2');
+            title_array.forEach((element) => {
+                let li = document.createElement('li'); // <li></li>
+                let a = document.createElement('a'); // <a></a>
+                a.setAttribute('href', `#${element.toLocaleLowerCase()}`); // href="#~"
+                a.innerText = `${element}`; // <a href="#~">~</a>
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+        });
+
+        // btn4를 클릭하면 순차적으로 리스트 추가하기 by DOM Node Creation
+        let index1 = 0;
+        document.getElementById('btn4').addEventListener('click', () => {
+            let ol = document.getElementById('ol2');
+            if(index1 < title_array.length) {
+                let li = document.createElement('li'); // <li></li>
+                let a = document.createElement('a'); // <a></a>
+                a.setAttribute('href', `#${title_array[index1].toLocaleLowerCase()}`); // href="#~"
+                a.innerText = `${title_array[index1]}`; // <a href="#~">~</a>
+                li.appendChild(a);
+                ul.appendChild(li);
+                index1++;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document의 객체들</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>document의 객체 List</h1>
+    <ul id="ul"></ul>
+    <a href="a">1</a>
+    <a href="b">1</a>
+    <a href="c">1</a>
+    <a href="d">1</a>
+    <a href="e">1</a>
+    <a href="f">1</a>
+    <a href="g">1</a>
+    <a href="h">1</a>
+    <a href="i">1</a>
+    <a href="j">1</a>
+
+    <script>
+        for(const key in document) {
+            document.getElementById('ul').innerHTML += `<li>${key} : ${document[key]}</li>`;
+            if(key == 'anchors') {
+                console.log(document.links);
+                for(const anchor of document[key]) { // HTMLCollection
+                    anchor.innerText = anchor.href;
+                }
+                console.log(document[key].length);
+            }   
+        }
+    </script>
+</body>
+</html>

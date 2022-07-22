@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval method</title>
+    <style>
+        h1 {
+            color: white;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>setInterval(callback function, interval duration) : duration(millisecond)을 주기로 지속적으로 callback function을 실행하는 메서드</h1>
+    <h1>clearInterval(할당받은객체)로 중지</h1>
+    <button type="button" id="start">start it</button>
+    <button type="button" id="finish">finish it</button>
+    <h1 id="print_result">Text</h1>
+
+    <script>
+        let interval_obj;
+        function change_color() {
+            interval_obj = setInterval(flash_color, 500);
+        }
+        function flash_color() {
+            let element = document.getElementById('print_result');
+            element.style.color = (element.style.color == 'white' ? 'red' : 'white');
+            element.style.backgroundColor = (element.style.backgroundColor == 'red' ? 'yellow' : 'red');
+        }
+        function stop_flash_color() {
+            clearInterval(interval_obj);
+        }
+
+        document.getElementById('start').addEventListener('click', change_color);
+        document.getElementById('finish').addEventListener('click', stop_flash_color);
+    </script>
+    <h3><a href="./06_location_href.html">06_location_href.html</a></h3>
+</body>
+</html>

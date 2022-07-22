@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Tag의 class속성</h1>
+    <ul class="ul list iter">
+        <li>element.classList : class속성의값은 여러개가 올수있으므로 list형태로 리턴받는다</li>
+        <li>리턴타입이 TokenList객체이기 때문에 별도의 메서드를 사용하여 관리한다</li>
+        <li>대표적인 메서드 : add(), contains(), toggle(), remove() ...</li>
+    </ul>
+
+    <script>
+        const ul = document.getElementsByTagName('ul');
+        console.log(ul);
+        console.log(ul[0].classList);
+        console.log(ul[0].classList.value);
+        console.log(ul[0].classList.length);
+        console.log(ul[0].classList[0]); // ul[0].classList[0] = 'ul2'; 읽기전용, 별도의 메서드가 필요
+        ul[0].classList.add("added"); // 클래스추가 메서드
+        ul[0].classList.contains('ul'); // 클래스탐색 메서드 return boolean
+        ul[0].classList.remove('iter'); // 클래스삭제 메서드 return undefined
+        ul[0].classList.toggle('iter'); // 클래스변환 메서드 : 있으면삭제 없으면 마지막위치에 추가
+        ul[0].classList.replace('iter', 'after'); // 클래스대체 메서드 : old, new
+        // 나머지 메서드들 foreach, keys, values, entries... : 활용도가 적음
+    </script>
+</body>
+</html>

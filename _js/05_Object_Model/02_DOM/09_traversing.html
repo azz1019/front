@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 탐색</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>DOM을 탐색하는 원리는 트리구조를 형상화하면 된다</h1>
+    <ul>
+        <li>포함관계, 연결관계를 파악하면 부모, 자식, 형제의 개념을통해 추측해낼수 있다</li>
+        <li>태그는 node와 element를 주는 프로퍼티들이 구분되어 있으므로 콘솔을 자주 보면서 확인하길권장</li>
+        <li>element를 리턴하는 프로퍼티들은 Element라는 단어가 포함되어있고, node를 리턴하는 프로퍼티들은 node라는 단어가 포함되어있다, 단 모든 프로퍼티에 적용되는 사항은아님</li>
+    </ul>
+
+    <script>
+        const ul_element = document.getElementsByTagName('ul'); // HTMLCollection
+        const ul_node = document.querySelector('ul'); // NodeList
+        console.log(ul_element);
+        console.log(ul_node);
+        console.log(ul_element[0].children);
+        console.log(ul_node.childNodes);
+    </script>
+</body>
+</html>

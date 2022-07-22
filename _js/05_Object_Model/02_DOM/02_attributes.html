@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element의 attribute</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Element의 속성은 크게 두가지로 구분할수있다. 태그의 속성인지, CSS(style)인지</h1>
+    <ul>
+        <li>태그의 속성은 태그가 가질수있는 속성명을 거의 그대로 사용한다, 하지만 class처럼 여러개의 값을 가질수있는 속성들은 별도의 속성명을 사용한다</li>
+        <li>CSS관련 속성은 style이라는 속성을통해 CSS프로퍼티에 접근할수있다</li>
+    </ul>
+    <img id="img_tag" src="test.jpg" alt="이미지가 나타나지않을때 출력" class="a b c">
+
+    <script>
+        const img_tag = document.getElementById('img_tag');
+        console.log(img_tag.id);
+        console.log(img_tag.src);
+        console.log(img_tag.alt);
+        console.log(img_tag.classList);
+        console.log(img_tag.classList[0]);
+        for(const key in img_tag) {
+            console.log(key, img_tag[key]);
+        }
+    </script>
+</body>
+</html>

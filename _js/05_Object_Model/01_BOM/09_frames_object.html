@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frames object</title>
+    <style>
+        iframe {
+            width: 900px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>브라우저와 같은 속성을 갖는 객체, 대표적인 예 : iframe</h1>
+    <button type="button" onclick="my_function()">프레임변경</button>
+    <br>
+    <iframe src="https://www.daum.net" frameborder="0"></iframe>
+    <iframe src="https://www.naver.com" frameborder="0"></iframe>
+
+    <script>
+        function my_function() {
+            window.frames[0].location = 'https://www.google.com';
+        }
+    </script>
+</body>
+</html>

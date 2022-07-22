@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM의 window</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>Browser Object Model에서 자바스크립트가 브라우저를 지칭하는 객체를 window객체라고함</h1>
+    <ul>
+        <li id="ih">window.innerHeight : 툴바를 제외한 높이</li>
+        <li id="iw">window.innerWidth : 스크롤바를 제외한 너비</li>
+        <li>윈도우와 브라우저의 화면배율에 따라 달라짐</li>
+    </ul>
+
+    <script>
+        let ih = window.innerHeight;
+        let iw = window.innerWidth;
+        document.getElementById('ih').innerText += ih;
+        document.getElementById('iw').innerText += iw;
+    </script>
+</body>
+</html>
