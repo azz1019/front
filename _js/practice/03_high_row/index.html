@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Down Game</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>Up Down Game</h1>
+    <ul>
+        <li>랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~99(포함)의 숫자 1개를 생성한다</li>
+        <li>숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다 라는 안내문구가 출력된다</li>
+        <li>input란에 1~99(포함) 숫자를 입력하고 맞추기라는 버튼을 클릭하면 컴퓨터의 숫자보다 높은숫자면 Down을 출력, 낮은숫자면 Up을 출력</li>
+        <li>컴퓨터의 숫자를 맞추면 정답입니다 컴퓨터숫자는 ? 이었습니다 라는 메세지 출력</li>
+    </ul>
+
+    <form action="" method="">
+        <input type="text" id="user_input" placeholder="1~99(포함) 입력" min="1" max="99">
+        <button type="button" id="random_button">랜덤숫자 만들기</button>
+        <button type="button" id="check_button">맞추기</button>
+        <span id="info"></span>
+    </form>
+
+    <script>
+        let random_number = 0, input_number = 0;
+
+        function make_random_number() {
+            random_number = Math.floor(Math.random() * 99) + 1;
+            document.getElementById('info').innerText = `랜덤으로 숫자를 생성하였습니다`;
+        }
+        function check_random_number() {
+            input_number = document.getElementById('user_input').value;
+            /*if(input_number == random_number) {
+                document.getElementById('info').innerText = `정답입니다 컴퓨터숫자는 ${random_number} 이었습니다`;
+            } else if(input_number > random_number) {
+                document.getElementById('info').innerText = 'Down';
+            }
+            else {
+                document.getElementById('info').innerText = 'Up';
+            }*/
+            document.getElementById('info').innerText 
+            = input_number == random_number ? `정답입니다 컴퓨터숫자는 ${random_number} 이었습니다`
+            : input_number > random_number ? 'Down' : 'Up'
+        }
+
+        random_button.addEventListener('click', make_random_number);
+        check_button.addEventListener('click', check_random_number);
+    </script>
+</body>
+</html>

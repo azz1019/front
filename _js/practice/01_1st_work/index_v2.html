@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫주차 도전과제</title>
+</head>
+<body>
+    <h1>form에서 입력한 데이터를 받아와 자바스크립트 객체로 저장한후 그 객체에 저장된 데이터를 html list로 출력하기</h1>
+
+    <form action="" method="">
+        이름 : <input type="text" id="user_name"><br>
+        거주지 : <input type="text" id="user_address"><br>
+        좋아하는 리스트 : <input type="text" id="user_favor1">&nbsp;<input type="text" id="user_favor2">&nbsp;<input type="text" id="user_favor3"><br>
+        이메일 : <input type="email" id="user_email"><br>
+        pet 소유 여부 : <input type="text" id="user_have_pet"><br>
+        지금 가장 원하는 것 : <input type="text" id="user_want"><br>
+        <button type="button" id="submit_button">저장</button>
+    </form>
+
+    <ul>
+        <li>데이터를 저장하는 버튼을 클릭하면 form에 입력된 데이터를 가져와 객체에 저장된다</li>
+        <li>출력버튼을 클릭하면 객체의 데이터가 html list로 출력된다</li>
+    </ul>
+
+    <h3>데이터 리스트</h3>
+    <ol>
+        <li>이름 : <span id="show_name"></span></li>
+        <li>거주지 : <span id="show_address"></span></li>
+        <li>좋아하는 리스트
+            <ul>
+                <li>1. <span id="show_favor1"></span></li>
+                <li>2. <span id="show_favor2"></span></li>
+                <li>3. <span id="show_favor3"></span></li>
+            </ul>
+        </li>
+        <li>이메일 : <span id="show_email"></span></li>
+        <li>pet 소유 여부 : <span id="show_have_pet"></span></li>
+        <li>지금 가장 원하는 것 : <span id="show_want"></span></li>
+    </ol>
+    <h3>리스트의 구조에따라 자바스크립트 객체를 만들어 볼것</h3>
+
+    <script src="./index.js"></script>
+    <script>
+        //document.getElementById('submit_button').addEventListener('click', show_info);
+        submit_button.addEventListener('click', show_info);
+    </script>
+</body>
+</html>

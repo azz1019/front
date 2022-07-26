@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 파일 구분</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>
+        input text에 파일명.확장자를 입력하여 전송버튼을 누르면 이미지파일인지 검사하여 이미지파일이면 정상파일입니다.
+        이미지파일이 아니면 이미지파일만 가능합니다. 라고 출력하기
+    </h1>
+    <form action="" method="">
+        <input type="text" id="file_name" placeholder="파일명.확장자">
+        <button type="button" id="submit_button">전송</button>
+    </form>
+    <script>
+        function image_file_valid() {
+            let str_image_file_name = document.getElementById("file_name").value;
+            let str_ext = str_image_file_name.substring(str_image_file_name.lastIndexOf(".") + 1);
+            str_ext = str_ext.toLowerCase(); // 대문자로된 확장자명도 소문자기준으로 판단 가능해야함
+
+            if((str_ext == "png") || (str_ext == "jpg") || (str_ext == "jpeg") || (str_ext == "gif")) {
+                console.log("정상파일입니다.");
+            }
+            else {
+                console.log("이미지파일만 가능합니다.");
+            }
+            
+            // return str_ext.endWith("png") ? true
+            // : str_ext.endWith("jpg") ? true
+            // : str_ext.endWith("jpeg") ? true
+            // : str_ext.endWith("gif") ? true
+            // : false;
+        }
+
+        submit_button.addEventListener('click', image_file_valid);
+    </script>
+</body>
+</html>
