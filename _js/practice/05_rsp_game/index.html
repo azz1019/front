@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>컴퓨터가 가위바위보를 정하면 나도 가위바위보 버튼중 한개를 선택하여 게임을한다</h1>
+    <h3>총 5번의 게임에서 각게임마다 승무패를 출력한다</h3>
+
+    <h2 id="game_count">count : 0</h2>
+    <h2 id="game_result">0승 0패 0무</h2>
+    <h2 id="game_hand">user : , com : </h2>
+    <h2 id="game_info">도전도전</h2>
+    <form action="" method="">
+        <button type="button" id="scissors_button">가위</button>
+        <button type="button" id="rock_button">바위</button>
+        <button type="button" id="paper_button">보</button>
+        <button type="button" id="replay_button">다시할랭</button>
+    </form>
+    
+    <script>
+        const SCISSORS = 1, ROCK = 2, PAPER = 3, MAX_GAME_COUNT = 5;
+        let user_choice = 0, com_choice = 0, game_count = 0, win_count = 0, lose_count = 0, draw_count = 0;
+        
+        function save_choice(choice) { // user 선택저장
+            user_choice = choice;
+        }
+        function make_com_choice() { // com 선택저장
+            com_choice = Math.floor(Math.random() * 3) + 1;
+        }
+        function get_choice(who) { // 선택반환
+            let choice = '';
+            if(who == SCISSORS) {
+                choice = '가위';
+            } else if (who == ROCK) {
+                choice = '바위';
+            } else {
+                choice = '보';
+            }
+            return choice;
+        }
+        function decision_victory() { // 승패판단 및 출력
+            document.getElementById('game_count').innerText = `count : ${game_count + 1}`;
+            game_count++;
+
+            if(game_count < MAX_GAME_COUNT) {
+                if(user_choice == com_choice)
+                {
+                    draw_count++;
+                } else if(user_choice == SCISSORS) {
+                    com_choice == PAPER ? win_count++ : lose_count++;
+                } else if(user_choice == ROCK) {
+                    com_choice == SCISSORS ? win_count++ : lose_count++;
+                } else {
+                    com_choice == ROCK ? win_count++ : lose_count++;
+                }
+                document.getElementById('game_result').innerText = `${win_count}승 ${lose_count}패 ${draw_count}무`;
+                document.getElementById('game_hand').innerText = `user : ${get_choice(user_choice)}, com : ${get_choice(com_choice)}`;
+            } else {
+                document.getElementById('game_info').innerText = `${MAX_GAME_COUNT}번 다했네용`;
+                document.getElementById('scissors_button').disabled = true;
+                document.getElementById('rock_button').disabled = true;
+                document.getElementById('paper_button').disabled = true;
+            }
+        }
+        function initialization_game_info() { // 게임초기화
+            game_count = 0;
+            game_count = 0, win_count = 0, lose_count = 0, draw_count = 0;
+            document.getElementById('game_count').innerText = `count : 0`;
+            document.getElementById('game_result').innerText = `0승 0패 0무`;
+            document.getElementById('game_hand').innerText = `user : , com : `;
+            document.getElementById('game_info').innerText = `도전도전`;
+            document.getElementById('scissors_button').disabled = false;
+            document.getElementById('rock_button').disabled = false;
+            document.getElementById('paper_button').disabled = false;
+        }
+        function make_result(choice) { // 게임진행
+            save_choice(choice);
+            make_com_choice();
+            decision_victory();
+        }
+
+        scissors_button.addEventListener('click', function(){make_result(SCISSORS)});
+        rock_button.addEventListener('click', function(){make_result(ROCK)});
+        paper_button.addEventListener('click', function(){make_result(PAPER)});
+        replay_button.addEventListener('click', initialization_game_info);
+    </script>
+</body>
+</html>

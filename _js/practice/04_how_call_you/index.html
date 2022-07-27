@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국에서 호칭 선택하기</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>외국인들이 가장 어려워하는것중 하나가 한국인들의 호칭</h1>
+    <h3>부르는사람 : 성별, 나이</h3>
+    <h3>부르는대상 : 성별, 나이</h3>
+    를 입력받으면 어떻게 부르는지를 출력해주는 로직을 완성해보시오
+
+    <form action="" method="">
+        부르는사람 : <input type="text" id="from_gender" placeholder="남/여">&nbsp;<input type="number" id="from_age" placeholder="나이(숫자)"><br>
+        부르는대상 : <input type="text" id="to_gender" placeholder="남/여">&nbsp;<input type="number" id="to_age" placeholder="나이(숫자)">
+        <button type="button" id="check_button">알아보기</button>
+        <span id="info"></span>
+    </form>
+
+    <script>
+        function check_how_call() {
+            let from_gender = document.getElementById('from_gender').value;
+            let from_age = document.getElementById('from_age').value;
+            let to_gender = document.getElementById('to_gender').value;
+            let to_age = document.getElementById('to_age').value;
+
+            if(from_age == to_age) {
+            document.getElementById('info').innerText = '친구';
+            } else if (from_age < to_age) {
+                if(from_gender == to_gender) {
+                    document.getElementById('info').innerText = from_gender == '남' ? '형' : '언니';
+                } else {
+                    document.getElementById('info').innerText = from_gender == '남' ? '누나' : '오빠';
+                }
+            } else {
+                document.getElementById('info').innerText = '동생';
+            }
+        }
+
+        check_button.addEventListener('click', check_how_call);
+    </script>
+</body>
+</html>
