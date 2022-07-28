@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각달의 마지막날 구하기</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>1월부터 12월을 입력하면 입력한달의 마지막일자가 몇일인지 출력(switch문 활용)</h1>
+
+    <form action="" method="">
+        month <input type="number" id="month" min="1" max="12">
+        <button type="button" id="check_button">마지막일자는?</button>
+        <span id="result"></span>
+    </form>
+
+    <script>
+        function get_lastday() {
+            let lastday = 0;
+            let month = parseInt(document.getElementById('month').value);
+            switch(month) {
+                case 2 :
+                    lastday = 28; // 일단 28로 고정
+                    break;
+                case 4 :
+                case 6 :
+                case 9 :
+                case 11 :
+                    lastday = 30;
+                    break;
+                default:
+                    lastday = 31;
+                    break;
+            }
+            document.getElementById('result').innerText = `${lastday}`;
+        }
+
+        check_button.addEventListener('click', get_lastday);
+    </script>
+</body>
+</html>

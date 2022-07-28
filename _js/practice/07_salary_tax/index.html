@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합소득세 계산해보기</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>종합소득세 = 과세표준 * 소득세율</h1>
+    <ul>
+        과세표준 = 총소득액 - 총공제인정액
+        <li>총소득액 산출 = 시간당 pay를 입력받기, 하루근무시간 입력받기, 1년 근로일수 입력받기(1년 52주)</li>
+        <li>총공제인정액(약식신고%) = 랜덤으로 약식신고% = 30.0% ~ 40.0%를 산출한다</li>
+        <li>과세표준의 해당구간의 세율을 부가하여 세액을 출력하시오</li>
+    </ul>
+    <img src="./tax.png" width="400" height="300">
+
+    <h2 id="view_general_income_tax">종합소득세 : 0</h2>
+    <h1 id="view_other">총소득액 : 0, 총공제인정액 : 0, 과세표준 : 0, 소득세율 : 0</h1>
+    <form action="" method="">
+        시급 : <input type="number" id="hourly_pay"><br>
+        일 근무시간 : <input type="number" id="work_hours"><br>
+        년 근무일수 : <input type="number" id="work_days"><br>
+        <button type="button" id="submit_button">종합소득세 계산</button>
+    </form>
+
+    <script>
+        let general_income_tax = 0/*종합소득세*/, amount_of_income = 0/*총소득액*/, income_tax_deduction = 0/*총공제인정액*/, tax_base = 0/*과세표준*/, income_tax_rate = 0/*소득세율*/, graduated_income_tax = 0/*누진공제액*/;
+
+        function calc_amount_of_income() { // 총소득액 계산
+            amount_of_income = parseFloat(document.getElementById('hourly_pay').value) * parseInt(document.getElementById('work_hours').value) * parseInt(document.getElementById('work_days').value);
+        }
+        function calc_income_tax_deduction() { // 총공제인정액 계산
+            income_tax_deduction = ((Math.random() * 11) + 30) / 100;
+            income_tax_deduction = income_tax_deduction.toFixed(1);
+        }
+        function calc_tax_base() { // 과세표준 계산
+            tax_base = amount_of_income * (1 - income_tax_deduction); // 100 - (100 * 0.x) => 100 * (1 - 0.x)
+        }
+        function decision_income_tax_rate() { // 소득세율, 누진공제액 판단
+            if (tax_base > 1000000000) {
+                income_tax_rate = 0.45;
+                graduated_income_tax = 6540;
+            } else if ((tax_base > 500000000) && (tax_base <= 1000000000)) {
+                income_tax_rate = 0.42;
+                graduated_income_tax = 3540;
+            } else if ((tax_base > 300000000) && (tax_base <= 500000000)) {
+                income_tax_rate = 0.40;
+                graduated_income_tax = 2540;
+            } else if ((tax_base > 150000000) && (tax_base <= 300000000)) {
+                income_tax_rate = 0.38;
+                graduated_income_tax = 1940;
+            } else if ((tax_base > 88000000) && (tax_base <= 150000000)) {
+                income_tax_rate = 0.35;
+                graduated_income_tax = 1490;
+            } else if ((tax_base > 46000000) && (tax_base <= 88000000)) {
+                income_tax_rate = 0.24;
+                graduated_income_tax = 522;
+            } else if ((tax_base > 12000000) && (tax_base <= 46000000)) {
+                income_tax_rate = 0.15;
+                graduated_income_tax = 108;
+            } else {
+                income_tax_rate = 0.06;
+            }
+        }
+        function calc_general_income_tax() { // 종합소득세 계산
+            general_income_tax = (tax_base * income_tax_rate) - graduated_income_tax;
+        }
+        function view_info() {
+            document.getElementById('view_general_income_tax').innerText = `종합소득세 : ${general_income_tax}`;
+            document.getElementById('view_other').innerText = `총소득액 : ${amount_of_income}, 총공제인정액 : ${income_tax_deduction}, 과세표준 : ${tax_base}, 소득세율 : ${income_tax_rate}, 누진공제액 : ${graduated_income_tax}`;
+        }
+        function make_result() {
+            calc_amount_of_income();
+            calc_income_tax_deduction();
+            calc_tax_base();
+            decision_income_tax_rate();
+            calc_general_income_tax();
+            view_info();
+        }
+        submit_button.addEventListener('click', make_result);
+    </script>
+</body>
+</html>
