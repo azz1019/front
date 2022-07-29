@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단퀴즈</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>구구단영역(2 x 2= 4 ~ 9 x 9 = 81)내에서 랜덤으로 한개를 문제로 내면 정답을 맞추는 로직</h1>
+    <ul>
+        <li>총 10개의 문제가 랜덤으로 출제되며 문제를풀때 정답, 오답의 결과를 출력해야 하고 10문제중 정답의 갯수를 기록하여 정답률을 출력한다</li>
+    </ul>
+    <div id="quiz"></div>
+
+    <script>
+        const MAX_QUIZE_COUNT = 15;
+        let quiz_info = {};
+        let quiz_count = 0;
+
+        function make_quiz_form() { // 문제틀 만들기
+            let str_query = ``;
+            str_query += `<form action="" method=""><h3 id="correct_percentage"></h3>`;
+            while(quiz_count < MAX_QUIZE_COUNT) {
+                str_query += `${quiz_count + 1}. <span id="quiz_x_${quiz_count + 1}">?</span> x <span id="quiz_y_${quiz_count + 1}">?</span> = <input type="number" id="answer_${quiz_count + 1}">&nbsp;<span id="result_${quiz_count + 1}">과연?</span><br>`;
+                quiz_count++;
+            }
+            str_query += `<br><button type="button" id="quiz_button">문제받기</button>&nbsp;<button type="button" id="guess_button">도전하기</button></form>`;
+            document.getElementById(`quiz`).innerHTML = str_query;
+            document.getElementById(`correct_percentage`).innerText = `정답률 0 %`;
+        }
+
+        function question_quiz() { // 문제 출제
+            quiz_count = 0;
+            while(quiz_count < MAX_QUIZE_COUNT) {
+                quiz_info[`x${quiz_count}`] = Math.floor(Math.random() * 8) + 2;
+                quiz_info[`y${quiz_count}`] = Math.floor(Math.random() * 8) + 2;
+                document.getElementById(`quiz_x_${quiz_count + 1}`).innerText = quiz_info[`x${quiz_count}`];
+                document.getElementById(`quiz_y_${quiz_count + 1}`).innerText = quiz_info[`y${quiz_count}`];
+                quiz_count++;
+            }
+        }
+
+        function geuss_quiz() { // 문제 채점
+            quiz_count = 0;
+            let correct_count = 0, correct_percentage = 0, multi = 0, answer = 0;
+            while(quiz_count < MAX_QUIZE_COUNT) {
+                answer = parseInt(document.getElementById(`answer_${quiz_count + 1}`).value);
+                multi = quiz_info[`x${quiz_count}`] * quiz_info[`y${quiz_count}`];
+                isNaN(answer) ? answer = 0 : answer = answer;
+                if(answer == multi) {
+                    document.getElementById(`result_${quiz_count + 1}`).innerHTML = `<span style="color : green;">정답</span>`;
+                    correct_count++;
+                } else {
+                    document.getElementById(`result_${quiz_count + 1}`).innerHTML = `<span style="color : red;">오답</span>`;
+                }
+                quiz_count++;
+            }
+            correct_percentage = (correct_count / MAX_QUIZE_COUNT).toFixed(2) * 100;
+            document.getElementById(`correct_percentage`).innerText = `정답률 ${correct_percentage}%`;
+        }
+        
+        make_quiz_form();
+
+        quiz_button.addEventListener('click', question_quiz);
+        guess_button.addEventListener('click', geuss_quiz);
+    </script>
+</body>
+</html>

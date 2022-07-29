@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 활용연습</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>반복문은 초기값, 조건식, 증감식을 이용해 제어를한다</h1>
+    <ol>
+        <li>1~100이하의 홀수를 모두 출력한 후 그수들의 합을 출력해보세요</li>
+        <li>정수 n을 입력받아 n의 약수를 모두출력하고 총 몇개의 약수가 있는지 출력해보세요</li>
+        <li>
+            <ol>
+                <li>3자리수 양의정수 1개 입력받기 : s</li>
+                <li>크기가 다른 1자리 양의정수 2개 입력받기 : a, b</li>
+                <li>s안의 a와 b의 배수개수 구해보세요</li>
+            </ol>
+        </li>
+    </ol>
+
+    <ol>
+        <li>
+            <span id="result_1"></span>
+        </li>
+        <li>
+            <input type="number" id="positive_integer_n">&nbsp;
+            <span id="result_2"></span>
+        </li>
+        <li>
+            <ol>
+                <li>
+                    <input type="number" id="positive_integer_s">
+                </li>
+                <li>
+                    <input type="number" id="positive_integer_a">&nbsp;
+                    <input type="number" id="positive_integer_b">
+                </li>
+                <li>
+                    <span id="result_3"></span>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <button type="button" id="submit_button">구해보기</button>
+
+    <script>
+        function get_sum_odd_number() {
+            let count = 1, is_odd = false, str_result = '', sum = 0;
+
+            while(count <= 100) {
+                (count % 2) == 1 ? is_odd = true : is_odd = false;
+                if(is_odd) {
+                    str_result += `${count} `;
+                    sum += count;
+                }
+                count++;
+            }
+            document.getElementById('result_1').innerText = `${str_result} = ${sum}`;
+        }
+
+        function get_divisor() {
+            let count = 1, is_divisor = false, str_result = '', divisor_count = 0;
+            const number_n = parseInt(document.getElementById('positive_integer_n').value);
+
+            if(number_n != 0) {
+                while(count <= number_n) {
+                    (number_n % count) == 0 ? is_divisor = true : is_divisor = false;
+                    if(is_divisor) {
+                        str_result += `${count} `;
+                        divisor_count++;
+                    }
+                    count++;
+                }
+                document.getElementById('result_2').innerText = `${str_result} = ${divisor_count}개`;
+            } else {
+                document.getElementById('result_2').innerText = `0이 아닌 정수를 입력하세요`;   
+            }
+        }
+
+        function get_multiple() {
+            let count = 1, loop_flag = true, str_result_a = '', str_result_b = '', multiple_count_a = 0, multiple_count_b = 0;
+            const number_s = parseInt(document.getElementById('positive_integer_s').value);
+            const number_a = parseInt(document.getElementById('positive_integer_a').value);
+            const number_b = parseInt(document.getElementById('positive_integer_b').value);
+            
+            while(loop_flag) {
+                str_result_a += `${number_a * count} `;
+                multiple_count_a++;
+                count++;
+                ((number_a * count) < number_s) ? loop_flag = true : loop_flag = false;
+            }
+            loop_flag = true, count = 1;
+            while(loop_flag) {
+                str_result_b += `${number_b * count} `;
+                multiple_count_b++;
+                count++;
+                ((number_b * count) < number_s) ? loop_flag = true : loop_flag = false;
+            }
+            document.getElementById('result_3').innerText = `${str_result_a} = ${multiple_count_a}개, ${str_result_b} = ${multiple_count_b}개`;
+        }
+
+        function make_result() {
+            get_sum_odd_number();
+            get_divisor();
+            get_multiple();
+        }
+        submit_button.addEventListener('click', make_result);
+    </script>
+</body>
+</html>
