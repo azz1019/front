@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또1등 당첨확률</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>대략 814만분의 1입니다</h1>
+    <ul>
+        <li>1~45의 숫자중 중복되지 않은 6개의 숫자를 추출합니다</li>
+        <li>6개의 숫자가 모두 일치해야 1등입니다</li>
+    </ul>
+    <button type="button" id="lotto_button">로또1등 당첨 확률은?</button>
+    <h3>로또1등 당첨확률은 <span id="win_percentage"></span>%입니다</h3>
+    <script>
+        function get_lotto_win_percentage() {
+            let numerator = 1, denominator = 1;
+            for(let count = 0; count < 6; count++) {
+                numerator = numerator * (6 - count);
+                denominator = denominator * (45 - count);
+            }
+            console.log(numerator, denominator);
+            document.getElementById('win_percentage').innerText = numerator / denominator;
+        }
+
+        lotto_button.addEventListener('click', get_lotto_win_percentage);
+    </script>
+</body>
+</html>
