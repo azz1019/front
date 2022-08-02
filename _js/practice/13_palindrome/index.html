@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팰린드름</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>팰린드름 : 거꾸로 읽어도 같은 단어인지 판단하기</h1>
+    <ul>
+        <li>단어 입력을 받아 팰린드름 여부를 출력하세요</li>
+        <li>테스트 단어 예시 : 토마토, 기러기, kayak 그외 일반 단어</li>
+    </ul>
+    <form action="" method="">
+        단어 : <input type="text" id="text">
+        <button type="button" id="check_button">과연?</button><br>
+        거꾸로 : <span id="reverse"></span><br>
+        결과 : <span id="result"></span>
+    </form>
+
+    <script>
+        function make_result() {
+            const text = document.getElementById('text').value;
+            let input_text = text.trim();
+            let input_text_length = input_text.length;
+            let reverse_text = '', result_text = '';
+
+            for(let loop = input_text_length - 1; loop >= 0; loop--) {
+                reverse_text += input_text.charAt(loop);
+            }
+            
+            if(input_text == reverse_text) {
+                result_text = '맞음';
+            } else {
+                result_text = '아님';
+            }
+            document.getElementById('reverse').innerText = reverse_text;
+            document.getElementById('result').innerText = result_text;
+        }
+
+        check_button.addEventListener('click', make_result);
+    </script>
+</body>
+</html>
