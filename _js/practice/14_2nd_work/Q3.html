@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 3</title>
+  <style>
+    button {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    단순 사칙연산 계산기 만들기 (+, -, *, /)
+  </h1>
+  <ul>
+    <li>
+      계산기의 작동은 버튼으로만 조작가능하다
+    </li>
+    <li>
+      연산자는 한 번만 사용하는 것으로 한다
+    </li>
+    <li>
+      버튼 : ., 0~9, +, -, *, /, =, C(clear)
+    </li>
+    <li>
+      계산기의 출력은 수식 = 결과의 형태이어여야 한다 : 12 + 34 = 46
+    </li>
+  </ul>
+
+  <form action="" method="">
+    <button type="button" id="button_7">7</button>
+    <button type="button" id="button_8">8</button>
+    <button type="button" id="button_9">9</button>
+    <button type="button" id="div_button">/</button><br>
+    <button type="button" id="button_4">4</button>
+    <button type="button" id="button_5">5</button>
+    <button type="button" id="button_6">6</button>
+    <button type="button" id="mul_button">*</button><br>
+    <button type="button" id="button_1">1</button>
+    <button type="button" id="button_2">2</button>
+    <button type="button" id="button_3">3</button>
+    <button type="button" id="sub_button">-</button><br>
+    <button type="button" id="clear_button">C</button>
+    <button type="button" id="button_0">0</button>
+    <button type="button" id="point_button">.</button>
+    <button type="button" id="add_button">+</button><br>
+    <button type="button" id="result_button">=</button>
+    <span id="x"></span>
+    <span id="operator"></span>
+    <span id="y"></span>
+    <span id="result"></span>
+  </form>
+
+  <script>
+    const BUTTON_ADD = '+', BUTTON_SUB = '-', BUTTON_MUL = '*', BUTTON_DIV = '/';
+    const BUTTON_0 = 0, BUTTON_1 = 1, BUTTON_2 = 2, BUTTON_3 = 3, BUTTON_4 = 4, BUTTON_5 = 5, BUTTON_6 = 6, BUTTON_7 = 7, BUTTON_8 = 8, BUTTON_9 = 9, BUTTON_POINT = '.';
+    let value_flag = false; // 왼쪽연산값을 입력했는지 구분
+
+    function set_flag(flag) { // 왼쪽연산값입력 구분설정
+      value_flag = flag;
+    }
+    function get_flag() { // 왼쪽연산값입력 구분반환
+      return value_flag;
+    }
+
+    function set_operator_button(is_disabled) { // 연산자버튼 활성화, 비활성화
+      document.getElementById('add_button').disabled = is_disabled;
+      document.getElementById('sub_button').disabled = is_disabled;
+      document.getElementById('mul_button').disabled = is_disabled;
+      document.getElementById('div_button').disabled = is_disabled;
+    }
+
+    function set_all_button(is_disabled) { // C버튼제외한 모든버튼 활성화, 비활성화
+      document.getElementById('button_0').disabled = is_disabled;
+      document.getElementById('button_1').disabled = is_disabled;
+      document.getElementById('button_2').disabled = is_disabled;
+      document.getElementById('button_3').disabled = is_disabled;
+      document.getElementById('button_4').disabled = is_disabled;
+      document.getElementById('button_5').disabled = is_disabled;
+      document.getElementById('button_6').disabled = is_disabled;
+      document.getElementById('button_7').disabled = is_disabled;
+      document.getElementById('button_8').disabled = is_disabled;
+      document.getElementById('button_9').disabled = is_disabled;
+      document.getElementById('point_button').disabled = is_disabled;
+      document.getElementById('add_button').disabled = is_disabled;
+      document.getElementById('sub_button').disabled = is_disabled;
+      document.getElementById('mul_button').disabled = is_disabled;
+      document.getElementById('div_button').disabled = is_disabled;
+      document.getElementById('result_button').disabled = is_disabled;
+    }
+    
+    function set_value(value) { // 값입력
+      if(get_flag()) { // 왼쪽연산값입력된 상태(연산자버튼 누른경우로 가정함)라면 오른쪽연산값으로 입력
+        document.getElementById('y').innerText = document.getElementById('y').innerText + value;
+      } else {
+        document.getElementById('x').innerText = document.getElementById('x').innerText + value;
+      }
+    }
+
+    function set_operator(operator) { // 연산자입력
+      document.getElementById('operator').innerText = operator;
+      set_flag(true);
+      set_operator_button(true);
+    }
+
+    function cacl() { // 연산진행
+      let x = parseFloat(document.getElementById('x').innerText);
+      let y = parseFloat(document.getElementById('y').innerText);
+      let operator = document.getElementById('operator').innerText;
+      switch (operator) {
+        case BUTTON_ADD:
+          document.getElementById('result').innerText = ` = ${x + y}`;
+          break;
+        case BUTTON_SUB:
+          document.getElementById('result').innerText = ` = ${x - y}`;
+          break;
+        case BUTTON_MUL:
+          document.getElementById('result').innerText = ` = ${x * y}`;
+          break;
+        case BUTTON_DIV:
+          document.getElementById('result').innerText = ` = ${x / y}`;
+          break;
+        default:
+          break;
+      }
+      set_flag(false);
+      set_all_button(true);
+    }
+
+    function init_status() { // 상태초기화
+      set_flag(false);
+      set_all_button(false);
+      document.getElementById('x').innerText = ``;
+      document.getElementById('operator').innerText = ``;
+      document.getElementById('y').innerText = ``;
+      document.getElementById('result').innerText = ``;
+    }
+
+    button_0.addEventListener('click', function(){set_value(BUTTON_0)});
+    button_1.addEventListener('click', function(){set_value(BUTTON_1)});
+    button_2.addEventListener('click', function(){set_value(BUTTON_2)});
+    button_3.addEventListener('click', function(){set_value(BUTTON_3)});
+    button_4.addEventListener('click', function(){set_value(BUTTON_4)});
+    button_5.addEventListener('click', function(){set_value(BUTTON_5)});
+    button_6.addEventListener('click', function(){set_value(BUTTON_6)});
+    button_7.addEventListener('click', function(){set_value(BUTTON_7)});
+    button_8.addEventListener('click', function(){set_value(BUTTON_8)});
+    button_9.addEventListener('click', function(){set_value(BUTTON_9)});
+    point_button.addEventListener('click', function(){set_value(BUTTON_POINT)});
+    clear_button.addEventListener('click', init_status);
+    add_button.addEventListener('click', function(){set_operator(BUTTON_ADD)});
+    sub_button.addEventListener('click', function(){set_operator(BUTTON_SUB)});
+    mul_button.addEventListener('click', function(){set_operator(BUTTON_MUL)});
+    div_button.addEventListener('click', function(){set_operator(BUTTON_DIV)});
+    result_button.addEventListener('click', cacl);
+  </script>
+</body>
+</html>

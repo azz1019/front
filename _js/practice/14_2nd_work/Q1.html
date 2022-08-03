@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 1</title>
+</head>
+<body>
+  <h1>
+    팩토리얼 계산함수 만들기
+  </h1>
+  <pre>
+-개념 설명-
+
+중학교 때 배운 '계승(팩토리얼)' 기억하시나요?
+
+1부터 어떤 양의 정수 n까지의 정수를 모두 곱한 것을 말하며 n!로 나타낸다.
+
+출저: 네이버 지식백과
+
+팩토리얼은 아래와 같이 계산합니다. 0!은 1이라는 점도 기억해주세요.
+
+0! = 1
+1! = 1
+2! = 2 * 1 = 2
+3! = 3 * 2 * 1 = 6
+4! = 4 * 3 * 2 * 1 = 24
+5! = 5 * 4 * 3 * 2 * 1 = 120
+6! = 6 * 5 * 4 * 3 * 2 * 1 = 720
+
+파라미터로 정수 n을 받고 n!을 계산해서 리턴해주는 함수 factorial을 작성해주세요.
+</pre>
+
+  <form action="" method="">
+    정수 : <input type="number" id="positive_integer_n">&nbsp;
+    <button type="button" id="submit_button">팩토리얼 계산</button><br>
+    결과 : <span id="result"></span>
+  </form>
+
+  <script>
+    function factorial() { // 팩토리얼 계산
+      let factorial_result = 1;
+      const number_n = parseInt(document.getElementById('positive_integer_n').value);
+      for(let loop_count = 0; loop_count < number_n; loop_count++) {
+        factorial_result = factorial_result * (number_n - loop_count);
+      }
+      document.getElementById('result').innerText = factorial_result;
+    }
+
+    submit_button.addEventListener('click', factorial);
+  </script>
+</body>
+</html>

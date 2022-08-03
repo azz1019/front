@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 2</title>
+</head>
+<body>
+  <h1>
+    Counter 만들기 : 버튼을 누르면 숫자값이 버튼의 기능에 맞춰 값이 증감한다
+  </h1>
+  <h2 id="number">0</h2>
+  <div>
+    <button id="increase">+1</button>
+    <button id="decrease">-1</button>
+  </div>
+  <script>
+    const INCREASE = 1, DECREASE = 0;
+
+    function set_counter(flag) { // Counter 증감
+      let counter = parseInt(document.getElementById('number').innerText);
+      if(flag) {
+        counter++;
+      } else {
+        counter--;
+      }
+      document.getElementById('number').innerText = counter;
+    }
+
+    increase.addEventListener('click', function(){set_counter(INCREASE)});
+    decrease.addEventListener('click', function(){set_counter(DECREASE)});
+  </script>
+</body>
+</html>

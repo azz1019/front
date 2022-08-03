@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섭씨를 화씨로</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>한국에있는 친구가 미국에 있는 미국프렌드에게 온도를 알려주고싶다고 가정</h1>
+    <ul>
+        <li>섭씨온도를 입력하면 화씨온도를 출력해주는 시스템</li>
+        <li>입력한 섭씨온도는 섭씨배열에 계속해서 저장(버튼사용)이되고 저장된 섭씨온도는 화씨온도로 변환되서 화씨온도의 배열로저장</li>
+        <li>출력버튼을 클릭하면 섭씨온도 => 화씨온도의 리스트 형태로 출력</li>
+    </ul>
+
+    <form action="" method="">
+        섭씨온도 : <input type="number" id="input_celsius">
+        <button type="button" id="button_save">저장</button>
+        <button type="button" id="button_view">출력</button>
+    </form>
+    <ul id="result"></ul>
+
+    <script>
+        const celsius_data = [], fahrenheit_data = [];
+        const print_area = document.getElementById('result');
+
+        function save_celsius() {
+            celsius_data[celsius_data.length] = parseFloat(document.getElementById('input_celsius').value);
+            celsius_to_fahrenheit();
+        }
+
+        function celsius_to_fahrenheit() {
+            fahrenheit_data[fahrenheit_data.length] = (celsius_data[celsius_data.length - 1] * 1.8) + 32;
+        }
+
+        function print_list() {
+            let str_html = '';
+            str_html += `<li>${celsius_data[celsius_data.length - 1]} => ${fahrenheit_data[fahrenheit_data.length - 1]}</li>`;
+            print_area.innerHTML += str_html;
+        }
+
+        button_save.addEventListener('click', save_celsius);
+        button_view.addEventListener('click', print_list);
+    </script>
+</body>
+</html>
