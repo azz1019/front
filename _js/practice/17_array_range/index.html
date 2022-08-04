@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 만들기</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>아래와 같이 배열을 만드는 range함수를 완성해보세요</h1>
+    <ul>
+        <li>range(1, 6, 1) => [1, 2, 3, 4, 5]</li>
+        <li>range(3, 10, 2) => [3, 5, 7, 9]</li>
+        <li>range(10, -10, -4) => [10, 6, 2, -2, -6]</li>
+    </ul>
+    <form action="" method="">
+        
+        range( <input type="number" id="start_number">, <input type="number" id="end_number">, <input type="number" id="diff_number"> )
+        <button type="button" id="submit_button">만들기</button><br>
+        => <span id="result"></span>
+        
+    </form>
+
+    <script>
+        function range() {
+            const results = [];
+            const start = parseInt(document.getElementById('start_number').value);
+            const end = parseInt(document.getElementById('end_number').value);
+            const diff = parseInt(document.getElementById('diff_number').value);
+
+            if(end > start) {
+                for (let index = start; index < end; index+=diff) {
+                    results.push(index);
+                }
+            } else {
+                for (let index = start; index > end; index+=diff) {
+                    results.push(index);
+                }
+            }
+            document.getElementById('result').innerText = results;
+        }
+
+        submit_button.addEventListener('click', range);
+    </script>
+</body>
+</html>
