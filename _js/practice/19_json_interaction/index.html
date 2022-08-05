@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터순환</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>주어진 데이터를 순환하여 원하는 조건에 맞는 정보를 출력하기</h1>
+    <ul>
+        <li>데이터의 exchange에서 통화이름만 가져와 새로운배열에 저장한후 출력</li>
+        <li>exchange의 각 통화 변화율중 가장 큰변화를 보인 객체 정보를 출력</li>
+        <li>gold의 포인트 정보와 변화율을 분석하여 전일(yesterday)의 포인트 값을 추정하여 출력</li>
+    </ul>
+
+    <script src="./index.js"></script>
+    <script>
+        const ex1 = [], ex2 = [], ex3 = [];
+
+        for(const key in exs) {
+            for(const object of exs[key]) {
+                if(key == 'exchanges') {
+                    ex1.push(object.name);
+                    ex2.push(Math.abs(object.updown));
+                }
+                if(key == 'gold') {
+                    // 전체에서 몇 퍼센트 증가하면 얼마? => 전체 * (1 + 퍼센트 / 100)
+                    // 전일금액 = object.point / (1 + object.updown / 100)
+                    ex3.push(object.point / (1 + object.updown / 100));
+                }
+            }
+        }
+
+        console.log(ex1);
+        console.log(Math.max(...ex2));
+        console.log(ex3);
+    </script>
+</body>
+</html>

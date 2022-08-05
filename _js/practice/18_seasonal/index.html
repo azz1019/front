@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24절기</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>24절기의 절기를 배열에 순서대로 저장한후 랜덤으로 몇번째 절기는? 묻는 문제</h1>
+    <ul>
+        <li>24절기를 배열에 선언한다</li>
+        <li>24절기 배열의 인덱스 번호를 활용하여 랜덤으로 몇번째 절기는? 문제 출제 버튼</li>
+        <li>입력해서 정답확인 버튼을 클릭하면 정답여부와 오답일경우 정답을 출력한다</li>
+        <li>10번의 문제를 출제한후 10문제를 모두풀면 더이상 출제가 안되고 정답률이 출력되도록 해보세요</li>
+    </ul>
+    <form action="" method="">
+        <span id="solar_term"></span><br>
+        <span id="result"></span><br>
+        <span id="correct_percentage"></span><br>
+        <input type="text" id="user_answer">
+        <button type="button" id="make_quiz_button">문제출제</button>
+        <button type="button" id="geuss_quiz_button">정답확인</button>
+        <button type="button" id="replay_quiz_button">다시하기</button>
+    </form>
+
+    <script>
+        const seasonal = [
+            '입춘', '우수', '경칩', '춘분', '청명', 
+            '곡우', '입하', '소만', '망종', '하지', 
+            '소서', '대서', '입추', '처서', '백로', 
+            '추분', '한로', '상강', '입동', '소설', 
+            '대설', '동지', '소한', '대한'
+        ];
+        const answer = [];
+        const MAX_QUIZE_COUNT = 10;
+        let random_number = 0, index = 0, correct_count = 0, correct_percentage = 0;
+
+        function make_quiz() {
+            random_number = Math.floor(Math.random() * 24);
+            document.getElementById('solar_term').innerText = `${index + 1}번째문제 : ${random_number + 1}번째 절기는?`;
+            document.getElementById('result').innerText = '';
+        }
+
+        function geuss_quiz() {
+            if(index < 10) {
+                answer.push(document.getElementById('user_answer').value);
+                if(answer[index] == seasonal[random_number]) {
+                    document.getElementById('result').innerText = '정답';
+                    correct_count++;
+                } else {
+                    document.getElementById('result').innerText = '오답';
+                }
+                index++;
+            } else {
+                correct_percentage = (correct_count / MAX_QUIZE_COUNT).toFixed(2) * 100;
+                document.getElementById(`correct_percentage`).innerText = `정답률 ${correct_percentage}%`;
+                document.getElementById('make_quiz_button').disabled = true;
+                document.getElementById('geuss_quiz_button').disabled = true;
+            }
+        }
+
+        function replay_quiz() {
+            document.getElementById('make_quiz_button').disabled = false;
+            document.getElementById('geuss_quiz_button').disabled = false;
+            index = 0;
+        }
+
+        make_quiz_button.addEventListener('click', make_quiz);
+        geuss_quiz_button.addEventListener('click', geuss_quiz);
+        replay_quiz_button.addEventListener('click', replay_quiz);
+    </script>
+</body>
+</html>
