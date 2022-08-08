@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 1</title>
+</head>
+<body>
+  <h1>
+    Q1. 영화 제목 5개를 입력받고 출력하기 (복습용)
+  </h1>
+
+  <form action="" method="">
+    1번째 영화제목 : <input type="text" id="movie_name_1"><br>
+    2번째 영화제목 : <input type="text" id="movie_name_2"><br>
+    3번째 영화제목 : <input type="text" id="movie_name_3"><br>
+    4번째 영화제목 : <input type="text" id="movie_name_4"><br>
+    5번째 영화제목 : <input type="text" id="movie_name_5"><br>
+    <button type="button" id="print_button">영화제목 출력</button>
+  </form>
+  <span id="result"></span>
+
+  <script>
+    const MAX_COUNT = 5;
+
+    function print_movie_name() {    
+        const movie_name_array = [];
+        for(let index = 0; index < MAX_COUNT; index++) {
+          movie_name_array.push(document.getElementById(`movie_name_${index + 1}`).value);
+        }
+        document.getElementById('result').innerText = movie_name_array;
+    }
+
+    print_button.addEventListener('click', print_movie_name);
+  </script>
+</body>
+</html>

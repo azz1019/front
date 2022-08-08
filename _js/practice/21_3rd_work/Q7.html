@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 7</title>
+</head>
+<body>
+  <h1>
+    Q7. 호텔 객실 관리 프로그램 만들기 (도전용)
+  </h1>
+  <ul>
+    <li>
+      5층, 각 층당 10호실, 총 50개의 객실보유한 호텔
+    </li>
+    <li>
+      메뉴버튼 > 객실현황보기, 입실, 퇴실, 초기화 > 클릭하면 기능 수행
+    </li>
+    <li>
+      관리할 호수 입력받고 각 기능 버튼을 클릭하는 프로세스 (간단하게 만들 수 있는 형태)
+    </li>
+    <li>
+      객실현황보기 버튼 > 방번호, 입실시간, 퇴실처리시간, 사용중 or 빈방 이라는 정보 출력
+    </li>
+    <li>
+      입실 > 사용중이면 입실불가, 빈방이면 입실완료 후 방정보 변경처리
+    </li>
+    <li>
+      퇴실 > 빈방이면 퇴실불가, 사용중이면 퇴실완료 후 방정보 변경처리
+    </li>
+    <li>
+      초기화 > 모든 방정보를 리셋
+    </li>
+  </ul>
+
+  <form action="" method="">
+    관리할 호수 : <input type="text" id="room_number">
+    <button type="button" id="print_button">객실현황보기</button>
+    <button type="button" id="check_in_button">입실</button>
+    <button type="button" id="check_out_button">퇴실</button>
+    <button type="button" id="reset_button">초기화</button>
+  </form>
+  <span id="info_area"></span>
+  <div id="table_area"></div>
+
+  <script>
+    const room_map = new Map();
+
+    function set_map() { // 맵초기세팅
+      for(let outer_index = 1; outer_index <= 5; outer_index++) {
+        for(let inner_index = 0; inner_index < 10; inner_index++) {
+          room_map.set(`${outer_index}0${inner_index}`, [0, 0, false]); // 방번호, [입실시간, 퇴실시간, 사용여부]
+        }
+      }
+    }
+
+    function delete_map() { // 맵정보삭제
+      for(let outer_index = 1; outer_index <= 5; outer_index++) {
+        for(let inner_index = 0; inner_index < 10; inner_index++) {
+          room_map.delete(`${outer_index}0${inner_index}`);
+        }
+      }
+    }
+
+    function reset_room() { // 초기화처리
+      document.getElementById('info_area').innerText = '초기화완료';
+      document.getElementById('table_area').innerText = '';
+      delete_map();
+      set_map();
+      print_room();
+    }
+
+    function print_room() { // 객실현황보기 처리
+      let str_tag = '';
+      str_tag += `<br><table border="1px">`;
+      str_tag += `<tr><td>방번호</td><td>입실시간</td><td>퇴실시간</td><td>사용여부</td></tr>`;
+      room_map.forEach(function(value, key, self) {
+            str_tag += `<tr><td>${key}</td><td>${value[0]}</td><td>${value[1]}</td><td>${value[2] == true ? "사용중" : "빈방"}</td></tr>`;
+      });
+      str_tag += `</table>`;
+      document.getElementById('table_area').innerHTML = str_tag;
+    }
+
+    function check_in_room() { // 입실처리
+      const room_num = document.getElementById('room_number').value;
+      let cur_room = room_map.get(room_num);
+      if(cur_room[2] == false) {
+        cur_room[0] = new Date();
+        cur_room[1] = 0;
+        cur_room[2] = true;
+        document.getElementById('info_area').innerText = '입실완료 - 어서오세요';
+      } else {
+        document.getElementById('info_area').innerText = '사용중 - 입실불가';
+      }
+      print_room();
+    }
+
+    function check_out_room() { // 퇴실처리
+      const room_num = document.getElementById('room_number').value;
+      let cur_room = room_map.get(room_num);
+      if(cur_room[2] == true) {
+        cur_room[0] = 0;
+        cur_room[1] = new Date();
+        cur_room[2] = false;
+        document.getElementById('info_area').innerText = '퇴실완료 - 안녕히가세요';
+      } else {
+        document.getElementById('info_area').innerText = '빈방 - 퇴실불가';
+      }
+      print_room();
+    }
+
+    print_button.addEventListener('click', print_room);
+    check_in_button.addEventListener('click', check_in_room);
+    check_out_button.addEventListener('click', check_out_room);
+    reset_button.addEventListener('click', reset_room);
+
+    set_map();
+  </script>
+</body>
+</html>

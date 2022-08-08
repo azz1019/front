@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 2</title>
+</head>
+<body>
+  <h1>
+    Q2. 0 ~ 1000 사이 정수 5개를 랜덤으로 생성하여 가장 큰 수와 작은 수 출력하기 (복습용)
+  </h1>
+
+  <span id="result"></span>
+
+  <script>
+    const MAX_COUNT = 5;
+    const random_array = [];
+    let random_num = 0;
+    
+    while(random_array.length < MAX_COUNT) {
+      random_num = Math.floor(Math.random() * 1001);
+      if(random_array.includes(random_num) == false) {
+        random_array.push(random_num);
+      }
+    }
+    random_array.sort(function(a, b){return a - b});
+    document.getElementById('result').innerText = `가장 큰 수 : ${random_array.pop()}, 가장 작은 수 : ${random_array.shift()}`;
+  </script>
+</body>
+</html>

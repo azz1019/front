@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 3</title>
+</head>
+<body>
+  <h1>
+    Q3. 2자리 이상의 양의 정수를 입력하고 그 수까지의 홀수의 합과 짝수의 합을 출력하기 (복습용)
+  </h1>
+
+  <form action="" method="">
+    2자리 이상의 양의 정수 : <input type="number" id="positive_integer_n">
+    <button type="button" id="submit_button">홀수합 짝수합 출력</button>
+  </form>
+  <span id="result"></span>
+
+  <script>
+    function sum_odd_even() {
+      let index = 1, sum_odd = 0, sum_even = 0;
+      const number_n = Math.abs(parseInt(document.getElementById('positive_integer_n').value));
+
+      while(index <= number_n) {
+        if((index % 2) == 0) {
+          sum_even += index;
+        } else {
+          sum_odd += index;
+        }
+        index++;
+      }
+      document.getElementById('result').innerText = `홀수의 합 : ${sum_odd}, 짝수의 합 : ${sum_even}`;
+    }
+
+    submit_button.addEventListener('click', sum_odd_even);
+  </script>
+</body>
+</html>

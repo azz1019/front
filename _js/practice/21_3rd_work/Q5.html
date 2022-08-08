@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 5</title>
+</head>
+<body>
+  <h1>
+    Q5. 6과목 점수를 입력하면 평균 90이상 : A부터 10점 간격으로 B, C, D, 60점 미만은 F를 판단하여 출력하기 (과제용)
+  </h1>
+
+  <form action="" method="">
+    1번째 과목 : <input type="number" id="subject_1"><br>
+    2번째 과목 : <input type="number" id="subject_2"><br>
+    3번째 과목 : <input type="number" id="subject_3"><br>
+    4번째 과목 : <input type="number" id="subject_4"><br>
+    5번째 과목 : <input type="number" id="subject_5"><br>
+    6번째 과목 : <input type="number" id="subject_6"><br>
+    <button type="button" id="submit_button">학점계산</button>
+  </form>
+  <span id="result"></span>
+
+
+  <script>
+    const MAX_COUNT = 6;
+
+    function calc_grade() {
+      const grade_array = [];
+      let total_score = 0, average_score = 0, grade = '';
+
+      for(let index = 0; index < MAX_COUNT; index++) { // 점수가져오기
+        grade_array.push(Math.abs(parseInt(document.getElementById(`subject_${index + 1}`).value)));
+      }
+      total_score = grade_array.reduce(function(total, value, index, array) { // 합계계산
+        return total + value;
+      });
+      average_score = total_score / MAX_COUNT;
+      
+      switch(parseInt(average_score/10)) {
+        case 10:
+        case 9:
+            grade = 'A';
+            break;
+        case 8:
+            grade = 'B';
+            break;
+        case 7:
+            grade = 'C';
+            break;
+        default:
+            grade = 'D';
+            break;
+      }
+      document.getElementById('result').innerText = grade;
+    }
+
+    submit_button.addEventListener('click', calc_grade);
+  </script>
+</body>
+</html>

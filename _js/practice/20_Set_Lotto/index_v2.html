@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기 ver2.0</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>
+        1 ~ 45까지의 중복되지 않는숫자 6개가 랜덤으로 추출후 순서대로 출력하기<br>
+        단, Set객체를 사용하지 않고 중복검사 로직을 만들어서 구현할것
+    </h1>
+    <span id="result"></span>
+
+    <script>
+        const lotto_array = [];
+        let lotto_num = 0;
+        while(lotto_array.length < 6) {
+            lotto_num = Math.floor(Math.random() * 45) + 1;
+            if(lotto_array.includes(lotto_num) == false) {
+                lotto_array.push(lotto_num);
+            }
+        }
+        lotto_array.sort(function(a, b){return a - b});
+        document.getElementById('result').innerText = lotto_array;
+    </script>
+</body>
+</html>

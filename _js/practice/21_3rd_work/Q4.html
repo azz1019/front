@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 4</title>
+</head>
+<body>
+  <h1>
+    Q4. 입력할 인원수를 입력받고 각 인원의 이름과 나이를 입력받으면 리스트로 출력하기 (과제용)
+  </h1>
+
+  <form action="" method="">
+    입력할 인원수 : <input type="number" id="max_count">
+    <button type="button" id="count_button">입력</button><br>
+    이름 : <input type="text" id="name"><br>
+    나이 : <input type="text" id="age"><br>
+    <button type="button" id="save_button">저장</button>
+    <button type="button" id="print_button">출력</button>
+    <button type="button" id="reset_button">다시하기</button>
+  </form>
+  <ul>
+    <span id="result"></span>
+  </ul>
+  
+  <script>
+    let max_count = 0, cur_index = 0;
+    let name_array = [], age_array = []; // 동명이인처럼 중복되는 경우가 있으니 그냥배열에 저장했습니다
+
+    function init_setting() { // 초기화처리
+      for(let index = max_count; index > 0; index--) {
+        name_array.pop();
+        age_array.pop();
+      }
+      max_count = 0;
+      cur_index = 0;
+      document.getElementById('max_count').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('age').value = '';
+      document.getElementById('max_count').disabled = false;
+      document.getElementById('count_button').disabled = false;
+      document.getElementById('name').disabled = true;
+      document.getElementById('age').disabled = true;
+      document.getElementById('save_button').disabled = true;
+      document.getElementById('print_button').disabled = true;
+      document.getElementById('reset_button').disabled = true;
+      document.getElementById('result').innerText = '';
+    }
+
+    function set_max_count() { // 인원수 입력처리
+      max_count = Math.abs(parseInt(document.getElementById('max_count').value));
+      document.getElementById('max_count').disabled = true;
+      document.getElementById('count_button').disabled = true;
+      document.getElementById('name').disabled = false;
+      document.getElementById('age').disabled = false;
+      document.getElementById('save_button').disabled = false;
+      document.getElementById('print_button').disabled = false;
+      document.getElementById('reset_button').disabled = false;
+    }
+
+    function save_data() { // 정보 저장처리
+      if(cur_index < max_count) {
+        name_array.push(document.getElementById('name').value);
+        age_array.push(Math.abs(parseInt(document.getElementById('age').value)));
+        document.getElementById('result').innerText = `${cur_index + 1}개 입력함`;
+        cur_index++;
+      } else {
+        document.getElementById('result').innerText = '다 찼습니다';
+      }
+    }
+
+    function print_data() { // 정보 출력처리
+      let str_tag = '';
+      for(let index = 0; index < max_count; index++) {
+        str_tag += `<li>${name_array[index]}, ${age_array[index]}</li>`;
+      }
+      document.getElementById('result').innerHTML = str_tag;
+    }
+
+    count_button.addEventListener('click', set_max_count);
+    save_button.addEventListener('click', save_data);
+    print_button.addEventListener('click', print_data);
+    reset_button.addEventListener('click', init_setting);
+
+    init_setting();
+  </script>
+</body>
+</html>

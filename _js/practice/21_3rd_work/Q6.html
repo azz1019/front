@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 6</title>
+</head>
+<body>
+  <h1>
+    Q6. 데이터를 입력할 인원수를 입력받고, 각 개인의 HTML, CSS, JS 과목의 점수를 입력하면 각 과목 점수, 총점, 평균을 html의 리스트나 table 태그에 출력하기 (과제용)
+  </h1>
+
+  <form action="" method="">
+    입력할 인원수 : <input type="number" id="max_count">
+    <button type="button" id="count_button">입력</button><br>
+    이름 : <input type="text" id="name"><br>
+    HTML : <input type="number" id="html_score"><br>
+    CSS : <input type="number" id="css_score"><br>
+    JS : <input type="number" id="js_score"><br>
+    <button type="button" id="save_button">저장</button>
+    <button type="button" id="print_button">출력</button>
+    <button type="button" id="reset_button">다시하기</button>
+  </form>
+  <ul>
+    <span id="result"></span>
+  </ul>
+  
+  <script>
+    let max_count = 0, cur_index = 0;
+    let user_array = [];
+
+    function init_setting() { // 초기화처리
+      for(let index = max_count; index > 0; index--) {
+        user_array.pop();
+      }
+      max_count = 0;
+      cur_index = 0;
+      document.getElementById('max_count').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('html_score').value = '';
+      document.getElementById('css_score').value = '';
+      document.getElementById('js_score').value = '';
+      document.getElementById('max_count').disabled = false;
+      document.getElementById('count_button').disabled = false;
+      document.getElementById('name').disabled = true;
+      document.getElementById('html_score').disabled = true;
+      document.getElementById('css_score').disabled = true;
+      document.getElementById('js_score').disabled = true;
+      document.getElementById('save_button').disabled = true;
+      document.getElementById('print_button').disabled = true;
+      document.getElementById('reset_button').disabled = true;
+      document.getElementById('result').innerText = '';
+    }
+
+    function set_max_count() { // 인원수 입력처리
+      max_count = Math.abs(parseInt(document.getElementById('max_count').value));
+      document.getElementById('max_count').disabled = true;
+      document.getElementById('count_button').disabled = true;
+      document.getElementById('name').disabled = false;
+      document.getElementById('html_score').disabled = false;
+      document.getElementById('css_score').disabled = false;
+      document.getElementById('js_score').disabled = false;
+      document.getElementById('save_button').disabled = false;
+      document.getElementById('print_button').disabled = false;
+      document.getElementById('reset_button').disabled = false;
+    }
+
+    function save_data() { // 정보 저장처리
+      if(cur_index < max_count) {
+        const user_name = document.getElementById('name').value;
+        const user_html_score = Math.abs(parseInt(document.getElementById('html_score').value));
+        const user_css_score = Math.abs(parseInt(document.getElementById('css_score').value));
+        const user_js_score = Math.abs(parseInt(document.getElementById('js_score').value));
+        const user_total_score = user_html_score + user_css_score + user_js_score;
+        const user_average_score = user_total_score / 3;
+        user_array.push({name : user_name, html_score : user_html_score, css_score : user_css_score, js_score : user_js_score, total_score : user_total_score, average_score : user_average_score}); // 원래는 객체를 만들어서 배열에 push했었는데 가장 마지막 정보로 배열 전체가 덮어써져서 포기했습니다ㅠㅠ
+        document.getElementById('result').innerText = `${cur_index + 1}개 입력함`;
+        cur_index++;
+      } else {
+        document.getElementById('result').innerText = '다 찼습니다';
+      }
+    }
+
+    function print_data() { // 정보 출력처리
+      let str_tag = '';
+      user_array.forEach(function(value, index, self) {
+        str_tag += `<li>이름 : ${value.name}, HTML : ${value.html_score}, CSS : ${value.css_score}, JS : ${value.js_score}, 총점 : ${value.total_score}, 평균 : ${value.average_score}</li>`;
+      });
+      document.getElementById('result').innerHTML = str_tag;
+    }
+
+    count_button.addEventListener('click', set_max_count);
+    save_button.addEventListener('click', save_data);
+    print_button.addEventListener('click', print_data);
+    reset_button.addEventListener('click', init_setting);
+
+    init_setting();
+  </script>
+</body>
+</html>
