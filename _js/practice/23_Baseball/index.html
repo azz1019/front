@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 야구 게임</title>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>컴퓨터가 0 ~ 9의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는게임</h1>
+    <ol>
+        <li>세자리의 숫자는 각 자리수를 갖고 서로 중복되지 않는다</li>
+        <li>각 자리수와 입력한 숫자의 자리수가 동일하면 1 Strike(스트라이크)</li>
+        <li>입력한 숫자가 포함되어있으나 자리수가 동일하지 않으면 1 Ball(볼)</li>
+        <li>입력한 숫자가 전혀 포함되어 있지 않으면 Out(아웃)</li>
+        <li>3스트라이크이면 1게임 종료</li>
+        <li>
+            플레이예시<br>
+            컴숫자(429), 내추측숫자(417) > 1S<br>
+            컴숫자(429), 내추측숫자(491) > 1S 1B<br>
+            컴숫자(429), 내추측숫자(742) > 2B<br>
+            컴숫자(429), 내추측숫자(381) > OUT
+        </li>
+    </ol>
+
+    <h3>제작규칙</h3>
+    <ul>
+        <li>1게임을 완료한 시간을 측정할것</li>
+        <li>게임을 진행하면서 숫자 추측 시도 횟수도 기록할것</li>
+        <li>페이지를 리프레쉬하거나 내부프로그램을 종료하기 전까지의 기록을 오름차순으로 정렬하여 출력할것</li>
+    </ul>
+    <ul>
+        <li>야구게임 기록을 서버에 저장하여 조회 및 삭제를 할수있게 만들어볼것</li>
+        <li>서버측의 데이터키(객체의 키)는 수정이 불가능하므로 재해석이 필요함</li>
+        <li>id : 자동생성, name : 게임실행유저이름 or 컴퓨터의정답</li>
+        <li>description : 컴퓨터의정답 or 유저가 시도한 내용 및 결과</li>
+        <li>price : 소요된시간, category_id : 총 시도횟수 or 한게임동안 총 스트라이크 수</li>
+        <li>created : 게임종료시간, modified : 자동생성</li>
+        <li>게임종료시 게임기록은 자동저장 or 버튼을 만들어저장</li>
+        <li>게임기록 조회는 리스트로 삭제를 리스트의 각 라인 우측에 삭제버튼을 제작 => 클릭하면 해당 라인 삭제</li>
+    </ul>
+
+    <form action="" method="">
+        컴퓨터씨 :
+        <input type="text" id="computer_number_1" readonly disabled>
+        <input type="text" id="computer_number_2" readonly disabled>
+        <input type="text" id="computer_number_3" readonly disabled>
+        <button type="button" id="start_game_button">게임시작하기</button><br>
+
+        사용자씨 :
+        <input type="number" id="user_number_1" min="0" max="9" required>
+        <input type="number" id="user_number_2" min="0" max="9" required>
+        <input type="number" id="user_number_3" min="0" max="9" required>
+        <button type="button" id="guess_number_button">추측하기</button><br>
+    </form>
+    <span id="game_result">Strike : 0, Ball : 0, Out : 0</span><br>
+    <span id="error"></span>
+
+    <script>
+        const ramdom_number_set = new Set();
+        let random_number_array = [];
+        const game_duration = {
+            start_time : 0,
+            end_time : 0
+        };
+        const game_data = [];
+        let guess_count = 0;
+        
+        function start_game() {
+            ramdom_number_set.clear();
+            random_number_array = [];
+
+            let num = 0;
+            while(ramdom_number_set.size < 3) {
+                num = Math.floor(Math.random() * 10);
+                ramdom_number_set.add(num);
+                random_number_array.push(num);
+            }
+            game_duration.start_time = new Date();
+
+            console.log(ramdom_number_set);
+        }
+
+        function guess_number() {
+            let user_number_array = [];
+            for(let index = 1; index <=3; index++) {
+                user_number_array.push(parseInt(document.getElementById(`user_number_${index}`).value));
+            }
+
+            if(isNaN(user_number_array[0]) ||
+                isNaN(user_number_array[1]) ||
+                isNaN(user_number_array[2])) {
+                    document.getElementById('error').innerText = '숫자 입력해주세요';
+            } else {
+                document.getElementById('error').innerText = '';
+                guess_count++;
+
+                let strike_count = 0, ball_count = 0, out_count = 0;
+                for(let out_index = 0; out_index <3; out_index++) {
+                    for(let in_index = 0; in_index <3; in_index++) {
+
+                        console.log(random_number_array[out_index], user_number_array[in_index]);
+
+                        if(random_number_array[out_index] == user_number_array[in_index]) {
+                            if(out_index == in_index) {
+                                strike_count++;
+                                document.getElementById(`computer_number_${out_index + 1}`).value = `${random_number_array[out_index]}`;
+                                document.getElementById(`user_number_${out_index + 1}`).disabled = true;
+                            } else {
+                                ball_count++;
+                            }
+                        }
+                    }
+                }
+
+                if((strike_count == 0) && (ball_count == 0)) {
+                    out_count++;
+                }
+
+                if(strike_count == 3) {
+                    strike_count = 0, ball_count = 0, out_count = 0;                
+                    for(let index = 0; index <3; index++) {
+                        document.getElementById(`computer_number_${index + 1}`).value = '';
+                        document.getElementById(`user_number_${index + 1}`).value = '';
+                        document.getElementById(`user_number_${index + 1}`).disabled = false;
+                    }
+                    document.getElementById('game_result').innerText = `3 Strike 게임종료`;
+                    game_duration.end_time = new Date();
+                    let game_info = {
+                        diff : (game_duration.end_time - game_duration.start_time) / 1000,
+                        guess_count : guess_count
+                    };
+                    game_data.push(game_info);
+                } else {
+                    document.getElementById('game_result').innerText = `Strike : ${strike_count}, Ball : ${ball_count}, Out : ${out_count}`;
+                }
+
+                console.log(game_data);
+            }
+        }
+
+        start_game_button.addEventListener('click', start_game);
+        guess_number_button.addEventListener('click', guess_number);
+    </script>
+</body>
+</html>
