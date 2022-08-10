@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+}
+h1 {    
+    border: 5px solid black;
+    width: 12%;
+    height: 50px;
+    margin: 30px auto;
+}
+ul {
+    /* border: 1px dashed red; */
+    list-style: none;
+    width: 30%;
+    margin: 10px auto;
+}
+li {
+    display: inline;
+    margin: 0px 10px;
+}
+img {
+    margin-top: 30px;
+    width: 50%;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
+.curr_view {
+    font-weight: bold;
+}

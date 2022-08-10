@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="./css/login_style.css">
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <div class="container">
+        <div class="login-form">
+            <form action="" method="">
+                <input type="text" class="text-field" placeholder="아이디"><br>
+                <input type="password" class="text-field" placeholder="비밀번호"><br>
+                <input type="button" class="button-input" value="로그인" disabled>
+            </form>
+            <div class="links">
+                <a href="#">비밀번호를 잊어버리셨나요?</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function check_validate() {
+            const btn = document.querySelector('.button-input');
+            let id = document.getElementsByClassName('text-field')[0].value; // querySelector('input[type="text"]').value
+            let pw = document.getElementsByClassName('text-field')[1].value; // querySelector('input[type="password"]').value
+
+            if((id.length > 7) && (pw.length > 7)) {
+                btn.style.setProperty('background-color', 'rgb(27, 188, 155)');
+                btn.disabled = false;
+            } else {
+                btn.style.setProperty('background-color', 'lightgray');
+                btn.disabled = true;
+            }
+
+            // let flag = (id.length > 7) && (pw.length > 7);
+            // btn.style.setProperty('background-color', `${flag ? 'rgb(27, 188, 155)' : 'lightgray'}`);
+            // btn.disabled = flag;
+        }
+
+        const inputs = document.querySelectorAll('.text-field');
+        for(let index = 0; index < inputs.length; index++) {
+            inputs[index].addEventListener('input', check_validate);
+        }
+
+        // inputs[0].addEventListener('input', () => {
+        //     let upw = document.getElementsByClassName('text-field')[1].value;
+        //     if(upw.length > 7) {
+        //         // 버튼의 활성화 조건 만족
+        //         let uid = document.getElementsByClassName('text-field')[0].value;
+        //         if(uid.length > 7) {
+        //             btn.style.setProperty('background-color', 'rgb(27, 188, 155)');
+        //             btn.disabled = false;
+        //         }
+        //     } else {
+        //         btn.style.setProperty('background-color', 'lightgray');
+        //         btn.disabled = true;
+        //     }
+        // });
+
+        // inputs[1].addEventListener('input', () => {
+        //     let uid = document.getElementsByClassName('text-field')[0].value;
+        //     if(uid.length > 7) {
+        //         // 버튼의 활성화 조건 만족
+        //         let upw = document.getElementsByClassName('text-field')[1].value;
+        //         if(upw.length > 7) {
+        //             btn.style.setProperty('background-color', 'rgb(27, 188, 155)');
+        //             btn.disabled = false;
+        //         }
+        //     } else {
+        //         btn.style.setProperty('background-color', 'lightgray');
+        //         btn.disabled = true;
+        //     }
+        // });
+    </script>
+</body>
+</html>

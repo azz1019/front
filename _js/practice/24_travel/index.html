@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <h1>Travel</h1>
+    <ul>
+        <li><a class="city home">Home</a></li>
+        <li><a class="city seoul">Seoul</a></li>
+        <li><a class="city tokyo">Tokyo</a></li>
+        <li><a class="city paris">Paris</a></li>        
+    </ul>
+    <img src="images/home.jpg" alt="Home" id="cityImg">
+
+    <script>
+        const aTags = document.querySelectorAll('.city');
+        const imgTag = document.querySelector('img');
+        for(let i = 0; i < aTags.length; i++) {
+            aTags[i].addEventListener('click', () => {
+                imgTag.src = `./images/${aTags[i].classList[1]}.jpg`;
+                aTags.forEach((elem) => {
+                    elem.classList.remove('curr_view');
+                });
+                aTags[i].classList.add('curr_view');
+            });
+            aTags[i].style.setProperty('cursor', 'pointer');
+        }
+
+        // document.addEventListener('click', (e) => {
+        //     if(e.target.classList != '') {
+        //         document.getElementById('cityImg').src = `./images/${e.target.classList[1]}.jpg`;
+        //     }
+        // });
+    </script>
+</body>
+</html>
