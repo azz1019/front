@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element 가져오기</title>
+</head>
+<body>
+    <h3><a href="../index.html">상위폴더로 돌아가기</a></h3>
+    <h1>$('css selector syntax') : document.getElement(s)By - Id, ClassName, TagName, .querySelector(...), .querySelectorAll(...)을 모두 커버함</h1>
+    <h3>css selector에 따라 리턴해주는 객체의 형태에따라 변수화시켜 사용가능, 모두 jQuery의 전용객체 타입임</h3>
+
+    <script src="../resources/jquery-3.6.0.min.js"></script>
+    <script>
+        //const h1 = document.getElementsByTagName('h1')[0].innerText;
+        const h1_text = $('h1').text();
+        const h1_html = $('h1').html();
+        console.log(h1_text);
+        console.log(h1_html);
+    </script>
+</body>
+</html>
