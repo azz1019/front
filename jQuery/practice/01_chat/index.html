@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightgrey;
+        }
+        .chatting-room {
+            text-align: center;
+            width: 400px;
+            height: 700px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(238, 239, 241);
+        }
+        .chatting-title {
+            text-align: center;
+            line-height: 70px;
+            height: 10%;
+            background-color: white;
+        }
+        .chatting-content {
+            height: 75%;
+            background-color: powderblue;
+            overflow: scroll;
+        }
+        .chatting-input {
+            float: left;
+            margin: 10px 0px 10px 10px;
+        }
+        .chatting-button {
+            text-align: center;
+            line-height: 80px;
+            float: right;
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            margin: 10px;
+        }
+        .chatting-text-receive {
+            text-align: left;
+            display: block;
+            padding-top: 5px;
+            padding-left: 10px;
+        }
+        .chatting-text-send {
+            text-align: right;
+            display: block;
+            padding-top: 5px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3><a href="../index.html">Index로 돌아가기</a></h3>
+    <div class="chatting-room">
+        <div class="chatting-title">전남친</div>
+        <div class="chatting-content"></div>
+        <div class="chatting-input">
+            <textarea name="content" id="content" cols="40" rows="5" placeholder=""></textarea>
+        </div>
+        <div class="chatting-button" id="send_button">전송</div>
+    </div>
+    <p></p>
+
+    <script src="../../resources/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $("div").children("div:nth(1)").append("<span class='chatting-text-receive'>잘지내?</span>");
+            $("div").children("div:nth(1)").append("<span class='chatting-text-receive'>자니?</span>");
+        });
+
+        $(send_button).on('click', function(){
+            let str = '';
+            str = `<span class='chatting-text-send'>${$(content).val()}</span>`;
+            $("div").children("div:nth(1):last").append(str);
+        });
+    </script>
+</body>
+</html>
